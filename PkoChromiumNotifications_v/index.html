@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Журнал системных уведомлений ПКО</title>
+    <link rel="icon" type="image/png" href="images/icon.png" />
+    <link rel="stylesheet" href="css/app.css" />
+</head>
+
+<body>
+    <div>
+        <table class="table table-pointer">
+            <thead>
+                <tr>
+                    <th title="Время">Время</th>
+                    <th title="Сообщение">Сообщение</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+                        <div class="buttons-group">
+                            <button name="ClearAll" class="form-button btn-danger">Очистить</button>
+                            <button name="deleteSelect" class="form-button btn-outline-danger d-none">Удалить</button>
+                            <button name="detail" class="form-button btn-primary d-none">Подробности</button>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script src="js/index.js"></script>
+    <script src="js/protobuf.min.js"></script>
+</body>
+</html>
