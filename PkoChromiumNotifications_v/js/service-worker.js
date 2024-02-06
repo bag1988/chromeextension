@@ -1,24 +1,26 @@
-import { FocusedOrCreateTab } from './createwindow.js';
 import { ShowNotify } from './createnotification.js';
-import * as con from './hubconnect.js';
+import { HubConnect } from './classhubconnect.js';
 
-var hubUrlCurrent;
 var HasOffscreen;
 
+var HubConnects = [];
+
+//для обновления расширения
 var updateInterval = setInterval(async () => {
   try {
-    console.log("Start check version extension");
-    let state = await chrome.storage.local.get(["hubState"]);
-    if (state.hubState == "Connected") {
-      let update_url = new URL(chrome.runtime.getManifest().update_url);
-      if (update_url.origin) {
-        let result = await fetch(`${update_url.origin}/api/v1/CheckVersionExtensions`, {
-          method: "post", headers: {
-            "Content-Type": "application/json"
-          }, body: JSON.stringify(chrome.runtime.getManifest().version)
-        }).catch((e) => console.log(`Метод "CheckVersionExtensions" не найден или не доступен!`, e));
+    console.trace("Start check version extension");
+    let update_url = new URL(chrome.runtime.getManifest().update_url);
+    if (update_url.origin) {
+      let result = await fetch(`${update_url.origin}/api/v1/CheckVersionExtensions`, {
+        method: "post", headers: {
+          "Content-Type": "application/json"
+        }, body: JSON.stringify(chrome.runtime.getManifest().version)
+      }).catch((e) => {
+        console.error(`Метод "CheckVersionExtensions" не найден или не доступен!`, e);
+      });
+      if (result) {
         let isHaveUpdate = await result?.json();
-        console.log("Result check version extension ", isHaveUpdate);
+        console.trace("Result check version extension", isHaveUpdate);
         if (isHaveUpdate) {
           StartUpdateExtension();
         }
@@ -26,19 +28,59 @@ var updateInterval = setInterval(async () => {
     }
   }
   catch (e) {
-    console.log(e);
+    console.error(e);
   }
 }, 60e3);
+
+
 function CreateConnect() {
-  chrome.storage.local.get(["urlConnect"]).then((result) => {
-    if (result.urlConnect) {
-      hubUrlCurrent = result.urlConnect;
-      con.ConnectHub(result.urlConnect);
+  chrome.storage.local.get().then((result) => {
+    let urlConnects = result.urlConnects;
+    let hubStates = result.hubStates;
+
+    hubStates = hubStates?.filter(x => urlConnects?.some(u => u.url == x.url) ?? false);
+
+    let exceptItems = HubConnects.filter(x => !urlConnects?.some(i => x.url == i.url) ?? true);
+    HubConnects = HubConnects.filter(x => urlConnects?.some(i => x.url == i.url) ?? false);
+    if (urlConnects?.length > 0) {
+      for (let item of urlConnects) {
+        let findElem = HubConnects.find(e => e.url == item.url)
+        if (findElem) {
+          if (findElem.hub && findElem.hub.getStateHub() == "Disconnected" && item.enabled) {
+            findElem.hub.startListenHub();
+          }
+          else if (findElem.hub && item.enabled != true) {
+            findElem.hub.stopConnect();
+          }
+          findElem.enabled = item.enabled;
+        }
+        else {
+          AddNewHub(item.url, item.enabled);
+        }
+      }
     }
-    else if (con.hub) {
-      con.CloseConnect();
+    if (exceptItems.length > 0) {
+      console.trace("Remove items hub", exceptItems);
+      while (exceptItems.length > 0) {
+        let item = exceptItems.pop();
+        item.hub.removeHub();
+      }
     }
+    chrome.storage.local.set({ hubStates: hubStates });
   });
+}
+
+function AddNewHub(url, enabled) {
+  if (!HubConnects.some(x => x.url == url)) {
+    console.trace("Add new connect for", url);
+    let newHub = new HubConnect();
+    let newItem = { hub: newHub, url: url, enabled: enabled };
+    HubConnects.push(newItem);
+    newItem.hub.createHubForUrl(url);
+    if (enabled) {
+      newItem.hub.startListenHub();
+    }
+  }
 }
 
 chrome.action.onClicked.addListener(() => {
@@ -48,8 +90,9 @@ chrome.action.onClicked.addListener(() => {
 chrome.runtime.onInstalled.addListener(({ reason }) => {
   if (reason == chrome.runtime.OnInstalledReason.INSTALL) {
     let update_url = new URL(chrome.runtime.getManifest().update_url);
-    if (update_url.hostname) {
-      chrome.storage.local.set({ urlConnect: `${update_url.hostname}:8291` });
+    if (update_url.host) {
+      let urlConnects = [{ url: update_url.host, enabled: true }];
+      chrome.storage.local.set({ urlConnects: urlConnects });     
     }
   }
 });
@@ -94,36 +137,24 @@ async function CreateOffscreen() {
           }
         }
         catch (e) {
-          console.log(has, e);
+          console.error(has, e);
           ShowNotify({ SystemNotification: 'Ошибка запуска "Системные уведомления ПКО"' });
         }
       }
     }
   }
   catch (ex) {
-    console.log("Error create offscreen");
+    console.error("Error create offscreen");
   }
 }
 
 chrome.runtime.onStartup.addListener(CreateOffscreen);
 
 CreateOffscreen();
-CreateConnect();
 
 chrome.runtime.onMessage.addListener((e) => {
-  if (e.method == "showWindow") {
-    FocusedOrCreateTab(e.forIp, e.forPage, e.height, e.width);
-  }
-  else if (e.method == "showNotify" && e.json) {
-    ShowNotify(JSON.parse(e.json));
-  }
-  else if (e.method == "keepAlive") {
-    if (!con.hub) {
-      CreateConnect();
-    }
-    if (con.hub && con.hub.state == "Disconnected") {
-      con.StartHub();
-    }
+  if (e.method == "keepAlive") {
+    CreateConnect();
   }
 });
 
@@ -134,24 +165,15 @@ self.addEventListener('notificationclick', (event) => {
     chrome.runtime.sendMessage({ method: "stopSound" });
   }
   catch (er) {
-    console.log(er);
+    console.error(er);
   }
-  //if (hubUrlCurrent) {
-  //  if (event.notification.data.url == "index.html") {
-  //    //await GetWindowClient(chrome.runtime.id, "index.html");
-  //  }
-  //  else {
-
-  //  }
-  //}
-
 });
 self.addEventListener('notificationclose', (event) => {
   try {
     chrome.runtime.sendMessage({ method: "stopSound" });
   }
   catch (er) {
-    console.log(er);
+    console.error(er);
   }
 });
 
@@ -161,19 +183,16 @@ chrome.notifications.onClicked.addListener(async (id) => {
     chrome.runtime.sendMessage({ method: "stopSound" });
   }
   catch (er) {
-    console.log(er);
+    console.error(er);
   }
   chrome.notifications.clear(id);
-  if (hubUrlCurrent && !id.includes("SystemNotification")) {
-    await FocusedOrCreateTab(chrome.runtime.id, "index.html");
-  }
 });
 chrome.notifications.onClosed.addListener(() => {
   try {
     chrome.runtime.sendMessage({ method: "stopSound" });
   }
   catch (er) {
-    console.log(er);
+    console.error(er);
   }
 });
 chrome.notifications.onButtonClicked.addListener((notificationId, buttonIndex) => {
@@ -181,50 +200,60 @@ chrome.notifications.onButtonClicked.addListener((notificationId, buttonIndex) =
     chrome.runtime.sendMessage({ method: "stopSound" });
   }
   catch (er) {
-    console.log(er);
+    console.error(er);
   }
 });
 
 chrome.storage.onChanged.addListener((object, areaName) => {
-  if (areaName == "local") {
-    if (object.urlConnect && object.urlConnect.newValue != object.urlConnect.oldValue) {
-      hubUrlCurrent = object.urlConnect.newValue;
-      con.ConnectHub(object.urlConnect.newValue);
-    }
-    else if (object.hubState && object.hubState.newValue != object.hubState.oldValue) {
-      if (object.hubState.newValue == "Connected") {
-        chrome.action.setBadgeText({ text: " " });//
-        chrome.action.setBadgeBackgroundColor({
-          color: "green"
-        });
+  try {
+    if (areaName == "local") {
+      if (object.urlConnects && object.urlConnects.newValue != object.urlConnects.oldValue) {
+        CreateConnect();
       }
-      else if (object.hubState.newValue == "Connecting") {
-        chrome.action.setBadgeText({ text: " " });
-        chrome.action.setBadgeBackgroundColor({
-          color: "yellow"
-        });
-      }
-      else {
-        chrome.action.setBadgeText({ text: " " });
-        chrome.action.setBadgeBackgroundColor({
-          color: "red"
-        });
+      else if (object.hubStates && object.hubStates.newValue != object.hubStates.oldValue) {
+        SetBadge();
       }
     }
   }
+  catch (e) {
+    console.error("Error change badge ", e);
+  }
 });
+SetBadge();
+async function SetBadge() {
+  let result = await chrome.storage.local.get({ hubStates: [] });
+  let hubStates = result.hubStates;
+  if (hubStates) {
+    if (hubStates.every(x => x.state == "Connected")) {
+      chrome.action.setBadgeText({ text: " " });
+      chrome.action.setBadgeBackgroundColor({
+        color: "green"
+      });
+    }
+    else if (hubStates.some(x => x.state == "Connecting")) {
+      chrome.action.setBadgeText({ text: " " });
+      chrome.action.setBadgeBackgroundColor({
+        color: "yellow"
+      });
+    }
+    else {
+      chrome.action.setBadgeText({ text: " " });
+      chrome.action.setBadgeBackgroundColor({
+        color: "red"
+      });
+    }
+  }
+}
 
 function StartUpdateExtension() {
-  console.log("Start requestUpdateCheck ");
+  console.trace("Start requestUpdateCheck ");
   chrome.runtime.requestUpdateCheck((e) => {
-    console.log("Result requestUpdateCheck ", e);
+    console.trace("Result requestUpdateCheck ", e);
     if (e == "update_available") {
       chrome.runtime.reload();
     }
     else if (e == "throttled") {
-
       clearInterval(updateInterval);
-
       ShowErrorUpdate();
       setInterval(ShowErrorUpdate, 6e5);
     }
@@ -247,11 +276,11 @@ async function ViewErrorUpdateInTab() {
           tabId: tab[0].id,
         },
         func: CreateAlert
-      }).then(() => console.log("script injected"));
+      }).then(() => console.trace("script injected"));
     }
   }
   catch (e) {
-    console.log("Error connect active tab", e);
+    console.error("Error connect active tab", e);
   }
 }
 

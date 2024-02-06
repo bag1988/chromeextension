@@ -2,30 +2,35 @@
 <html>
 
 <head>
-  <meta charset="UTF-8" />
-  <title>Настройки системных уведомление ПКО</title>
-  <link rel="stylesheet" href="css/app.css" />
+    <meta charset="UTF-8" />
+    <title>Настройки системных уведомление ПКО</title>
+    <link rel="stylesheet" href="css/app.css" />
 </head>
 
 <body>
-  <main class="p-4 fs-1">
-    <h3 style="white-space: nowrap;">IP адрес сервера уведомлений</h3>
-    <form class="center">
-      <div class="divgroup">
-        <label for="ipAddress">https://</label>
-        <input id="ipAddress" name="ipAddress" placeholder="xxx.xxx.xxx.xxx:xxxx" />
-      </div>
-      <button class="form-button btn-outline-primary" type="submit">Сохранить</button>
-    </form>
-    <p>
-      Состояние: <span id="stateConnect">Проверка</span>
-    </p>
-    <footer>
-        <button id="viewHistory" class="form-button btn-outline-primary nowrap">Журнал системных уведомлений</button>
-        <small style="display: block;text-align: center;margin-top: 0.5rem;"></small>
-    </footer>
-  </main>
-  <script src="js/popup.js"></script>
+    <main class="p-4 fs-0-8">
+        <h3 style="white-space: nowrap;">IP адреса серверов уведомлений</h3>
+        <form class="center">
+            <table class="table divgroup text-center">
+                <thead>
+                    <tr>
+                        <th title="IP адрес">IP адрес</th>
+                        <th title="Состояние">Состояние</th>
+                        <th title="Включено">Включено</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <p>
+                <button class="form-button btn-outline-primary" type="submit">Сохранить</button>
+            </p>            
+        </form>        
+        <footer>
+            <small style="display: block;text-align: center;margin-top: 0.5rem;"></small>
+        </footer>
+    </main>
+    <script src="js/popup.js"></script>
 </body>
 
 </html>

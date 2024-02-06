@@ -13,7 +13,7 @@
           await chrome.runtime.sendMessage({ method: "playSound" });
         }
         catch (er) {
-          console.log(er);
+          console.error(er);
         }
       }
       else if (payload.SystemNotification) {       
@@ -33,6 +33,6 @@
     }
   }
   catch (e) {
-    console.log(e);
+    console.error(e);
   }
 }

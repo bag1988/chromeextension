@@ -1,9 +1,14 @@
+window.onload = async () => {
+  await chrome.runtime.sendMessage({ method: "keepAlive" });;
+}
+
+
 setInterval(async () => {
   try {
     await chrome.runtime.sendMessage({ method: "keepAlive" });
   }
   catch (e) {
-    console.log(e);
+    console.error(e);
   }
 }, 20e3);
 

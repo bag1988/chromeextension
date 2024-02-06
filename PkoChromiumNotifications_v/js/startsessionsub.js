@@ -1,5 +1,5 @@
 var SelectArray;
-var CurrentUrl;
+var urlConnect;
 
 chrome.runtime.onMessage.addListener((e) => {
   if (e.method == "Fire_StartSessionSubCu") {
@@ -7,23 +7,19 @@ chrome.runtime.onMessage.addListener((e) => {
   }
 });
 
-window.onload = async () => {
-  var result = await chrome.storage.local.get(["urlConnect"]);
-  if (result && result.urlConnect) {
-    CurrentUrl = result.urlConnect;
-  }
-  chrome.storage.onChanged.addListener((object, areaName) => {
-    if (areaName == "local") {
-      if (object.urlConnect && object.urlConnect.newValue != object.urlConnect.oldValue) {
-        CurrentUrl = object.urlConnect.newValue;
-      }
+window.onload = () => {
+  urlConnect = new URL(window.location.href).searchParams.get("forUrl");
+  if (urlConnect) {
+    var title = document.querySelector('title');
+    if (title) {
+      title.innerHTML = `${title.innerText} - ${urlConnect}`;
     }
-  });
+  }
 
   if (document.querySelector(".table-pointer tbody")) {
     document.querySelector(".table-pointer tbody").onclick = SetSelectItem;
   }
-  
+
   if (GetAudioPlayer()) {
     GetAudioPlayer().onerror = (e) => {
       e.currentTarget.classList.add("d-none");
@@ -75,6 +71,7 @@ function SetSelectItem(event) {
           if (msgUrl) {
             player.src = msgUrl;
             tfoot.classList.remove("d-none");
+            player.load();
           }
           else {
             player.src = '';
@@ -90,7 +87,7 @@ function AddStartRow(detailInfo) {
   var tbody = document.querySelector("tbody");
   if (tbody) {
     if (detailInfo) {
-      let rowHtml = `<tr ${detailInfo.msgID.objID > 0 ? `data-value="https://${CurrentUrl}/api/v1/GetSoundServer?MsgId=${detailInfo.msgID.objID}&Staff=${detailInfo.msgID.staffID}&System=33&version=${new Date().getSeconds()}"` : ""}">
+      let rowHtml = `<tr ${detailInfo.msgID.objID > 0 ? `data-value="https://${urlConnect}/api/v1/GetSoundServer?MsgId=${detailInfo.msgID.objID}&Staff=${detailInfo.msgID.staffID}&System=33&version=${new Date().getSeconds()}"` : ""}">
                           <td>${detailInfo.staffName}</td>
                           <td>${detailInfo.controlUnitName}</td>
                           <td>${new Date(detailInfo.sessBeg?.seconds * 1000 + Math.round(detailInfo.sessBeg?.nanos / 1000000)).toLocaleString()}</td>

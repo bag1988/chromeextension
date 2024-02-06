@@ -3,7 +3,8 @@
   "name": "Системные уведомления ПКО",
   "description": "Программный комплекс оповещения",
   "update_url": "https://127.0.0.1:9291/api/v1/UpdateChromiumExtensions",
-  "version": "1.2.4.5",
+  "version": "2.1.2.6",
+  "minimum_chrome_version": "106",
   "icons": {
     "16": "images/icon.png",
     "32": "images/icon.png",
@@ -19,7 +20,7 @@
   },
   "host_permissions": [
     "<all_urls>"
-  ], 
+  ],
   "permissions": [
     "tabs",
     "storage",

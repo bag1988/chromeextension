@@ -7,6 +7,14 @@
     --audio-bg: rgba(255, 255, 255, 0.5);
 }
 
+.white-space {
+    white-space: break-spaces;
+}
+
+.v-align-top {
+    vertical-align: top;
+}
+
 body {
     background-color: var(--body-bg);
     color: var(--body-color);
@@ -51,6 +59,10 @@ iframe {
         border-style: solid;
         border-width: 1px;
     }
+
+        .table tbody tr:hover {
+            background-color: var(--black-30);
+        }
 
 audio {
     height: 30px;
@@ -207,9 +219,6 @@ audio::-webkit-media-controls-enclosure {
     display: none;
 }
 
-.table th {
-    font-size: 1.1rem;
-}
 
 .bg-select {
     background-color: var(--black-50);
@@ -229,14 +238,23 @@ audio::-webkit-media-controls-enclosure {
     white-space: nowrap !important;
 }
 
-.fs-1 {
+.fs-0-8 {
     font-size: 0.8rem;
+}
+.fs-1 {
+    font-size: 1rem;
+}
+.fs-1-1 {
+    font-size: 1.1rem;
 }
 
 .m-1 {
     margin: 0.25rem;
 }
-
+.text-center
+{
+    text-align:center;
+}
 .p-4 {
     padding: 1rem;
 }
@@ -255,20 +273,15 @@ audio::-webkit-media-controls-enclosure {
     width: 100%;
 }
 
-.divgroup {
-    display: flex;
-    margin-bottom: 0.5rem;
-    align-items: baseline;
-}
 
-    .divgroup input {
-        background-color: var(--black-30);
-        color: rgb(232, 234, 237);
-        border: none;
-        border-radius: 4px;
-        padding: 0.5rem;
-        margin-left: 0.3rem;
-    }
+.divgroup input {
+    background-color: var(--black-30);
+    color: rgb(232, 234, 237);
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin-left: 0.3rem;
+}
 
 .form-button {
     border-radius: 4px;

@@ -1,74 +1,135 @@
 ﻿
-export async function FocusedOrCreateTab(forIp, forPage, height = 700, width = 1000) {
-  try {
-    let forUrl = `chrome-extension://${forIp}/${forPage}`;
-    var windowsCurrent = await chrome.windows.getAll({});
-    var allTabs = new Array();
-    //получаем все вкладки во всех окнах
-    if (windowsCurrent.length > 0) {
-      for (const element of windowsCurrent) {
-        allTabs = allTabs.concat(await chrome.tabs.query({ windowId: element.id }));
-      }
-    }
-    if (allTabs.length > 0) {
-      let newUrls;
-      //ищем нужную страницу
-      let foundElem = allTabs.find(t => t.url?.includes(forUrl));
+const CurrentLoadTab = new Map();
 
-      if (foundElem) {
-        await chrome.tabs.update(foundElem.id, { "active": true });
-        await chrome.windows.update(foundElem.windowId, { "focused": true });
-        return foundElem;
-      }
-    }
-    let window = await chrome.windows.create({ height: height, width: width, focused: true, url: forUrl, type: "popup" });
-
-    if (forPage == "currentnotification.html") {
-      chrome.tabs.onRemoved.addListener(function listener(tabId, info) {
-        if (tabId === window.tabs[0].id) {
-          chrome.tabs.onRemoved.removeListener(listener);
-          chrome.runtime.sendMessage({ method: "stopSound" });
-        }
-      });
-    }
-
-    return window.tabs[0];
-  }
-  catch (e) {
-    console.log(e);
+class LoadSendData {
+  constructor(method, data) {
+    this.method = method;
+    this.data = data;
   }
 }
 
-export async function GetWindowClient(forIp, forPage, height = 700, width = 1000) {
-  try {
-    let forUrl = `chrome-extension://${forIp}/${forPage}`;
-    let clients = await self.clients.matchAll();
-    if (clients?.length > 0) {
-      let foundElem = clients.find(t => t.url?.includes(forUrl));
-      if (foundElem) {       
-        foundElem.focus();
-      }
-    }
-    await chrome.windows.create({ height: height, width: width, focused: true, url: forUrl, type: "popup" });
+class TabForUrl {
+  constructor() {
+    this.tabId = null;
+    this.loadData = [];
   }
-  catch (e) {
-    console.log(e);
+  setTabId(tabId) {
+    this.tabId = tabId;
+  }
+  addData(loadSendData) {
+    this.loadData.push(loadSendData);
+  }
+  getLoadData() {
+    return this.loadData;
   }
 }
 
-export async function FocusedOrCreateTabAndSendData(url, data, height = 700, width = 1000) {
-  let tab = await FocusedOrCreateTab(chrome.runtime.id, url, height, width);
-  if (tab) {
-    if (tab.status == "complete") {
-      chrome.tabs.sendMessage(tab.id, { method: "Fire_StartSessionSubCu", detailInfo: data })
+async function FocusedOrCreateTab(forIp, forPage, height = 700, width = 1000) {
+  try {
+    if (!CurrentLoadTab.has(forPage)) {
+      CurrentLoadTab.set(forPage, new TabForUrl());
     }
     else {
-      chrome.tabs.onUpdated.addListener(function listener(tabId, info) {
-        if (info.status === 'complete' && tabId === tab.id) {
-          chrome.tabs.onUpdated.removeListener(listener);
-          chrome.tabs.sendMessage(tab.id, { method: "Fire_StartSessionSubCu", detailInfo: data })
-        }
-      });
+      return null;
+    }
+
+    let forUrl = `chrome-extension://${forIp}/${forPage}`;
+
+    let findTabs = await chrome.tabs.query({ url: forUrl });
+
+    let findTab;
+
+    if (findTabs.length > 0) {
+      findTab = findTabs[0];
+      await chrome.tabs.update(findTab.id, { "active": true });
+      await chrome.windows.update(findTab.windowId, { "focused": true });
+      return findTab;
+    }
+    else {
+      let window = await chrome.windows.create({ height: height, width: width, focused: true, url: forUrl, type: "popup", left: 50, top: 50 });
+      findTab = window.tabs[0];
+
+      if (forPage == "currentnotification.html") {
+        chrome.tabs.onRemoved.addListener(function listener(tabId, info) {
+          if (tabId === window.tabs[0].id) {
+            chrome.tabs.onRemoved.removeListener(listener);
+            chrome.runtime.sendMessage({ method: "stopSound" });
+          }
+        });
+      }
+    }
+    return findTab;
+  }
+  catch (e) {
+    if (CurrentLoadTab.has(forPage)) {
+      CurrentLoadTab.delete(forPage);
+    }
+    console.error(e);
+  }
+}
+
+export async function RemoveTab(forPage) {
+  try {
+    if (CurrentLoadTab.has(forPage)) {
+      CurrentLoadTab.delete(forPage);
+    }
+    let forUrl = `chrome-extension://${chrome.runtime.id}/${forPage}`;
+
+    let findTabs = await chrome.tabs.query({ url: forUrl });
+
+    if (findTabs.length > 0) {
+      await chrome.tabs.remove(findTabs[0].id);
     }
   }
+  catch (e) {
+    console.error(e);
+  }
+}
+
+async function sendToTabData(tabId, method, data, forUrl) {
+  try {
+    if (forUrl) {
+      if (CurrentLoadTab.has(forUrl)) {
+        const currentArray = CurrentLoadTab.get(forUrl).getLoadData();
+        CurrentLoadTab.delete(forUrl);
+        for (var item of currentArray) {
+          await chrome.tabs.sendMessage(tabId, { method: item.method, detailInfo: item.data });
+        }
+      }
+    } else {
+      await chrome.tabs.sendMessage(tabId, { method: method, detailInfo: data });
+    }
+  }
+  catch (e) {
+    console.error(e);
+  }
+}
+
+async function SendData(tab, method, data, forUrl) {
+  try {
+    if (CurrentLoadTab.has(forUrl)) {
+      CurrentLoadTab.get(forUrl).addData(new LoadSendData(method, data));
+    }
+    if (tab) {
+      if (tab.status == "complete") {
+        await sendToTabData(tab.id, method, data, forUrl);
+      }
+      else {
+        chrome.tabs.onUpdated.addListener(async function listener(tabId, info) {
+          if (info.status === 'complete' && tabId === tab.id) {
+            chrome.tabs.onUpdated.removeListener(listener);
+            await sendToTabData(tab.id, method, data, forUrl);
+          }
+        });
+      }
+    }
+  }
+  catch (e) {
+    console.error(e);
+  }
+}
+
+export async function FocusedOrCreateTabAndSendData(url, method, data, height = 700, width = 1000) {
+  let tab = await FocusedOrCreateTab(chrome.runtime.id, url, height, width);
+  await SendData(tab, method, data, url);
 }
