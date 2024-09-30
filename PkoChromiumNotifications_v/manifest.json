@@ -1,10 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "Системные уведомления ПКО",
-  "description": "Программный комплекс оповещения",
-  "update_url": "https://127.0.0.1:9291/api/v1/UpdateChromiumExtensions",
-  "version": "2.1.2.6",
-  "minimum_chrome_version": "106",
+  "name": "__MSG_extTitle__",
+  "description": "__MSG_extDesc__",
+  "update_url": "https://127.0.0.1:9291/api/v1/UpdateChromiumExtensions?background=true",
+  "version": "2.7.2.38",
+  "minimum_chrome_version": "120",
+  "default_locale": "ru",
   "icons": {
     "16": "images/icon.png",
     "32": "images/icon.png",
@@ -22,14 +23,12 @@
     "<all_urls>"
   ],
   "permissions": [
+    "background",
     "tabs",
     "storage",
-    "downloads",
     "activeTab",
     "scripting",
     "notifications",
-    "webNavigation",
-    "offscreen",
-    "management"
+    "offscreen"
   ]
 }

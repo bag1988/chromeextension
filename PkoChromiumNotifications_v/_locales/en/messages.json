@@ -1,0 +1,566 @@
+﻿{
+  "extTitle": {
+    "message": "System Notifications - Notification Software Package"
+  },
+  "popTitle": {
+    "message": "Settings of the system notification of the PCO"
+  },
+  "startSubCuTitle": {
+    "message": "Launching an alert on a subordinate control unit - An alert software package"
+  },
+  "extDesc": {
+    "message": "Notification software package"
+  },
+  "loading": {
+    "message": "Loading..."
+  },
+  "day": {
+    "message": "days"
+  },
+  "timeoutMessage": {
+    "message": "The confirmation timeout has expired, or a response has been received from another point."
+  },
+  "btnCancel": {
+    "message": "Cancel"
+  },
+  "btnConfirm": {
+    "message": "Confirm"
+  },
+  "btnSave": {
+    "message": "Save"
+  },
+  "btnClose": {
+    "message": "Close"
+  },
+  "errGetData": {
+    "message": "Data acquisition error!"
+  },
+  "confirmIsNotRequired": {
+    "message": "Confirmation is not required"
+  },
+  "aCommandForExecution": {
+    "message": "A command has been received for execution"
+  },
+  "waitingText": {
+    "message": "Waiting"
+  },
+  "confirmIsRequired": {
+    "message": "Confirmation is required"
+  },
+  "fitrl": {
+    "message": "Filter"
+  },
+  "thData": {
+    "message": "Date"
+  },
+  "thMessage": {
+    "message": "Message"
+  },
+  "thEndPoint": {
+    "message": "End point"
+  },
+  "thEnabled": {
+    "message": "Enabled"
+  },
+  "thState": {
+    "message": "Condition"
+  },
+  "thLocalTime": {
+    "message": "Local time"
+  },
+  "thSubCu": {
+    "message": "Controlled by the PU"
+  },
+  "thInitiatorLaunch": {
+    "message": "The initiator of the launch"
+  },
+  "thBeginNotify": {
+    "message": "The beginning of the notification"
+  },
+  "thSubSystem": {
+    "message": "Subsystem"
+  },
+  "thNameSit": {
+    "message": "Name of the script"
+  },
+  "thNameMessage": {
+    "message": "Name of the message"
+  },
+  "errConnectServer": {
+    "message": "Error connecting to the notification server"
+  },
+  "version": {
+    "message": "Version"
+  },
+  "connected": {
+    "message": "Connected"
+  },
+  "connecting": {
+    "message": "Connection is in progress"
+  },
+  "reconnecting": {
+    "message": "Reconnecting"
+  },
+  "forbidden": {
+    "message": "There is no permission"
+  },
+  "disconnected": {
+    "message": "Disabled"
+  },
+  "errChromium109": {
+    "message": "Install the Chromium version at least 109."
+  },
+  "errStartExtension": {
+    "message": "Launch error \"System Notifications - Notification Software package\""
+  },
+  "errUpdateExtension": {
+    "message": "Update error \"System notifications - Notification Software package\". Update the extension manually"
+  },
+  "systemAso": {
+    "message": "ASO"
+  },
+  "systemUzs": {
+    "message": "UUZS"
+  },
+  "systemCu": {
+    "message": "The management system"
+  },
+  "systemP16": {
+    "message": "P16x, PDU ASO"
+  },
+  "systemNoFound": {
+    "message": "There is no such subsystem"
+  },
+  "endPointsConnectig": {
+    "message": "Endpoints of notification servers"
+  },
+  "changeLanguage": {
+    "message": "A new localization has been installed"
+  },
+  "displayLanguage": {
+    "message": "Display language"
+  },
+  "displaySystem": {
+    "message": "Browser localization"
+  },
+  "displayRU": {
+    "message": "Russian (Russia)"
+  },
+  "displayEN": {
+    "message": "English (United States)"
+  },
+  "launchControlCu": {
+    "message": "Launching an alert on a subordinate PO $1 ($2)"
+  },
+  "newVersionAvailable": {
+    "message": "⚠ New version available"
+  },
+  "versionCurrent": {
+    "message": "✓ Version is current"
+  },
+  "poName": {
+    "message": "Notification software package"
+  },
+  "poNameKAE": {
+    "message": "«Uran»Civil Protection"
+  },
+  "poNameSensor": {
+    "message": "АС «OSODU»"
+  },
+  "poNameSensorM": {
+    "message": "Global Alert system"
+  },
+  "moduleNotification": {
+    "message": "The «System Notifications» module"
+  },
+  "historyNotification": {
+    "message": "History of system notifications"
+  },
+  "historyLaunchAlert": {
+    "message": "The history of launching alerts at subordinate control points (CU)"
+  },
+  "CHANNEL_DISABLED_CONNECTION_TIMEOUT": {
+    "message": "The channel is disabled due to the connection timeout."
+  },
+  "CHANNEL_DISABLED_INITIALIZATION_TIMEOUT": {
+    "message": "The channel is disabled due to the initialization timeout."
+  },
+  "CHANNEL_DISCONNECTED_CONNECTION_ERRORS": {
+    "message": "Channel is disabled, initialization errors, total: $1."
+  },
+  "CHANNEL_DISCONNECTED_PERMISSIBLE_ERRORS": {
+    "message": "Channel is disabled, the allowed number of errors has been exceeded, total: $1."
+  },
+  "CHANNEL_DISCONNECTED_UNRESOLVABLE_ERROR_UNSPECIFIED": {
+    "message": "Channel is disabled, unresolvable error: missing error code."
+  },
+  "CHANNEL_NOT_INITIALIZED_UNRESOLVABLE_ERROR_UNSPECIFIED": {
+    "message": "Channel is not initialized, unresolvable error: missing error code."
+  },
+  "CHANNEL_DISCONNECTED_UNRESOLVABLE_ERROR_UNKNOWN": {
+    "message": "Channel is disabled, unresolvable error: unknown error code '$1'."
+  },
+  "CHANNEL_NOT_INITIALIZED_UNRESOLVABLE_ERROR_UNKNOWN": {
+    "message": "Channel is not initialized, unresolvable error: unknown error code '$1'."
+  },
+  "CHANNEL_DISCONNECTED_UNRESOLVABLE_ERROR_CHANNEL_BLOCKED_BY_LICENSE": {
+    "message": "Channel is disabled, unresolvable error: no licenses available (more channels requested than allowed)."
+  },
+  "CHANNEL_NOT_INITIALIZED_UNRESOLVABLE_ERROR_CHANNEL_BLOCKED_BY_LICENSE": {
+    "message": "Channel is not initialized, unresolvable error: no licenses available (more channels requested than allowed)."
+  },
+  "CHANNEL_DISCONNECTED_UNRESOLVABLE_ERROR_PBX_NO_REGISTRATION": {
+    "message": "Channel is disabled, unresolvable error: no registration on the PBX."
+  },
+  "CHANNEL_NOT_INITIALIZED_UNRESOLVABLE_ERROR_PBX_NO_REGISTRATION": {
+    "message": "Channel is not initialized, unresolvable error: no registration on the PBX."
+  },
+  "CHANNEL_DISCONNECTED_UNRESOLVABLE_ERROR_SND_CARD_NOT_WORK": {
+    "message": "Channel is disabled, unresolvable error: sound card cannot be used."
+  },
+  "CHANNEL_NOT_INITIALIZED_UNRESOLVABLE_ERROR_SND_CARD_NOT_WORK": {
+    "message": "Channel is not initialized, unresolvable error: sound card cannot be used."
+  },
+  "ERRORS_CHANNEL": {
+    "message": "Errors on the channel, total: $1."
+  },
+  "RESET_CHANNEL_STATE": {
+    "message": "The channel state has been reset."
+  },
+  "IDS_STRING_STARTED_BY_SHEDULE_EX": {
+    "message": "Scheduled notification started: [$1]"
+  },
+  "IDS_STRING_ERR_START_SHEDULE_EX": {
+    "message": "Error triggering scheduled alert: [$1]"
+  },
+  "IDS_AUTOTASK_INVALIDSESS_EX": {
+    "message": "Error launching additional notification according to schedule, notification was not produced: [$1]"
+  },
+  "IDS_STRING_RENOTIFY_BY_SHEDULE_EX": {
+    "message": "Scheduled additional notification launched: [$1]"
+  },
+  "IDS_STRING_ERR_RENOTIFY_BY_SHEDULE_EX": {
+    "message": "Error starting scheduled follow-up notification: [$1]"
+  },
+  "LICENSE_UPDATED_KEY_INSERTED": {
+    "message": "License updated. Key '$1' with license type '$2' inserted."
+  },
+  "LICENSE_UPDATED_KEY_REMOVED": {
+    "message": "License updated. Key '$1' with license type '$2' retrieved."
+  },
+  "LICENSE_UPDATED_KEY_INSERTED_NOT_EXPIRED_WITH_TIME": {
+    "message": "License updated. Key '$1' with license type '$2' inserted, expires on $3."
+  },
+  "LICENSE_UPDATED_KEY_REMOVED_NOT_EXPIRED_WITH_TIME": {
+    "message": "License updated. Key '$1' with license type '$2' retrieved, expires on $3."
+  },
+  "LICENSE_UPDATED_KEY_INSERTED_EXPIRED_WITH_TIME": {
+    "message": "License updated. Key '$1' with license type '$2' inserted, expired on $3."
+  },
+  "LICENSE_UPDATED_KEY_REMOVED_EXPIRED_WITH_TIME": {
+    "message": "License updated. Key '$1' with license type '$2' retrieved, expired on $3."
+  },
+  "LICENSE_UNAVAILABLE": {
+    "message": "The license is no longer available. Key '$1' with license type '$2' not found."
+  },
+  "LICENSE_EXPIRES_SOON_KEY_INSERTED": {
+    "message": "License expires! Key '$1' with license type '$2' inserted."
+  },
+  "LICENSE_EXPIRES_SOON_KEY_REMOVED": {
+    "message": "License expires! Key '$1' with license type '$2' retrieved."
+  },
+  "LICENSE_EXPIRES_SOON_KEY_INSERTED_NOT_EXPIRED_WITH_TIME": {
+    "message": "License expires! Key '$1' with license type '$2' inserted, expires on $3."
+  },
+  "LICENSE_EXPIRES_SOON_KEY_REMOVED_NOT_EXPIRED_WITH_TIME": {
+    "message": "License expires! Key '$1' with license type '$2' retrieved, expires on $3."
+  },
+  "LICENSE_EXPIRES_SOON_KEY_INSERTED_EXPIRED_WITH_TIME": {
+    "message": "License expires! Key '$1' with license type '$2' inserted, expired on $3."
+  },
+  "LICENSE_EXPIRES_SOON_KEY_REMOVED_EXPIRED_WITH_TIME": {
+    "message": "License expires! Key '$1' with license type '$2' retrieved, expired on $3."
+  },
+  "LICENSE_EXPIRED": {
+    "message": "License has expired! Key '$1' with license type '$2' not found."
+  },
+  "IDS_STRING_CHECK_STATE_LONG_AGO_EX": {
+    "message": "The state has not been monitored for a long time [$1]"
+  },
+  "IDS_STRING_AVAR_IN_ASO_EX": {
+    "message": "Alarm in the ASO subsystem: [$1]: $2"
+  },
+  "IDS_STRING_AVAR_IN_CU_EX1": {
+    "message": "Alarm in the control subsystem: [$1]"
+  },
+  "IDS_STRING_AVAR_IN_CU_EX2": {
+    "message": "Alarm in the control subsystem: [$1] $2"
+  },
+  "IDS_STRING_AVAR_IN_UUZS_EX": {
+    "message": "UUZS alarm [$1]: Device initialization error"
+  },
+  "IDS_STRING_POS_EX": {
+    "message": "$1: - Fire alarm triggered"
+  },
+  "IDS_STRING_POS2_EX": {
+    "message": "$1: - Security alarm triggered"
+  },
+  "IDS_STRING_SENSOR_SECURITY_EX": {
+    "message": "$1: - Tamper sensor triggered"
+  },
+  "IDS_STRING_NOT_ANSWER_EX": {
+    "message": "$1: - No response from end device"
+  },
+  "IDS_STRING_ERR_EPU_EX": {
+    "message": "$1: - Error when working with EPU"
+  },
+  "IDS_STRING_ERR_UZS_EX": {
+    "message": "$1: - Terminal device error"
+  },
+  "IDS_STRING_UZS_NOT_ANSWER_EX": {
+    "message": "$1: UZS does not respond"
+  },
+  "IDS_STRING_START_CU_FROM_CU_EX": {
+    "message": "Start the headquarters subsystem from the control point [$1]"
+  },
+  "IDS_STRING_START_CU_FROM_UNKNOWN_CU": {
+    "message": "Starting the headquarters subsystem from an unknown control point"
+  },
+  "NOTIFICATION_ACCEPTANCE_COMMAND_P16_X_NO_CU_NO_SITUATIONS": {
+    "message": "Command '$1' [#$2] received.\nSource not specified.\nThere are no scripts assigned to this command.\nConfirmation of receipt of this command is required."
+  },
+  "NOTIFICATION_ACCEPTANCE_COMMAND_P16_X_WITH_CU_NO_SITUATIONS": {
+    "message": "Command '$1' [#$2] received.\nSource: '$3'.\nThere are no scripts assigned to this command.\nConfirmation of receipt of this command is required."
+  },
+  "NOTIFICATION_ACCEPTANCE_COMMAND_P16_X_NO_CU_WITH_SITUATIONS": {
+    "message": "Command '$1' [#$2] received.\nSource not specified.\nConfirmation required to trigger alerts for scenarios:$4."
+  },
+  "NOTIFICATION_ACCEPTANCE_COMMAND_P16_X_WITH_CU_WITH_SITUATIONS": {
+    "message": "Command '$1' [#$2] received.\nSource: '$3'.\nConfirmation required to trigger alerts for scenarios:$4."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_STOP_POWER_OFF": {
+    "message": "Error sending command to ASO notification logic:\nStop the alert.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_STOP_NEED_RESTART": {
+    "message": "Error sending command to ASO notification logic:\nStop the alert.\nThe PC needs to be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_STOP_POWER_OFF_NEED_RESTART": {
+    "message": "Error sending command to ASO notification logic:\nStop the alert.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds.\nThen the PC must be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_STOP_POWER_OFF": {
+    "message": "Error sending a command to the UUZS notification logic:\nStop the alert.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_STOP_NEED_RESTART": {
+    "message": "Error sending a command to the UUZS notification logic:\nStop the alert.\nThe PC needs to be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_STOP_POWER_OFF_NEED_RESTART": {
+    "message": "Error sending a command to the UUZS notification logic:\nStop the alert.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds.\nThen the PC must be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_STOP_POWER_OFF": {
+    "message": "Error sending command to PU notification logic:\nStop the alert.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_STOP_NEED_RESTART": {
+    "message": "Error sending command to PU notification logic:\nStop the alert.\nThe PC needs to be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_STOP_POWER_OFF_NEED_RESTART": {
+    "message": "Error sending command to PU notification logic:\nStop the alert.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds.\nThen the PC must be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_CONTINUE_POWER_OFF": {
+    "message": "Error sending command to ASO notification logic:\nAdditional notice .\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_CONTINUE_NEED_RESTART": {
+    "message": "Error sending command to ASO notification logic:\nAdditional notice .\nThe PC needs to be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_CONTINUE_POWER_OFF_NEED_RESTART": {
+    "message": "Error sending command to ASO notification logic:\nAdditional notice .\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds.\nThen the PC must be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_CONTINUE_POWER_OFF": {
+    "message": "Error sending a command to the UUZS notification logic:\nAdditional notice .\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_CONTINUE_NEED_RESTART": {
+    "message": "Error sending a command to the UUZS notification logic:\nAdditional notice .\nThe PC needs to be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_CONTINUE_POWER_OFF_NEED_RESTART": {
+    "message": "Error sending a command to the UUZS notification logic:\nAdditional notice .\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds.\nThen the PC must be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_CONTINUE_POWER_OFF": {
+    "message": "Error sending command to PU notification logic:\nAdditional notice .\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_CONTINUE_NEED_RESTART": {
+    "message": "Error sending command to PU notification logic:\nAdditional notice .\nThe PC needs to be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_CONTINUE_POWER_OFF_NEED_RESTART": {
+    "message": "Error sending command to PU notification logic:\nAdditional notice .\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds.\nThen the PC must be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_SITUATION": {
+    "message": "Error sending command to ASO notification logic:\nRunning script '$1'."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_SITUATION_POWER_OFF": {
+    "message": "Error sending command to ASO notification logic:\nRunning script '$1'.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_SITUATION_NEED_RESTART": {
+    "message": "Error sending command to ASO notification logic:\nRunning script '$1'.\nThe PC needs to be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_SITUATION_POWER_OFF_NEED_RESTART": {
+    "message": "Error sending command to ASO notification logic:\nRunning script '$1'.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds.\nThen the PC must be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_CHECK_ASO": {
+    "message": "Error sending command to ASO notification logic:\nstate monitoring ."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_CHECK_ASO_POWER_OFF": {
+    "message": "Error sending command to ASO notification logic:\nMonitoring the state of the ASO.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_CHECK_ASO_NEED_RESTART": {
+    "message": "Error sending command to ASO notification logic:\nMonitoring the state of the ASO.\nThe PC needs to be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_CHECK_ASO_POWER_OFF_NEED_RESTART": {
+    "message": "Error sending command to ASO notification logic:\nMonitoring the state of the ASO.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds.\nThen the PC must be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_SITUATION": {
+    "message": "Error sending a command to the UUZS notification logic:\nRunning script '$1'."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_SITUATION_POWER_OFF": {
+    "message": "Error sending a command to the UUZS notification logic:\nRunning script '$1'.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_SITUATION_NEED_RESTART": {
+    "message": "Error sending a command to the UUZS notification logic:\nRunning script '$1'.\nThe PC needs to be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_SITUATION_POWER_OFF_NEED_RESTART": {
+    "message": "Error sending a command to the UUZS notification logic:\nRunning script '$1'.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds.\nThen the PC must be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_CHECK_SZS": {
+    "message": "Error sending a command to the UUZS notification logic:\nMonitoring the state of the UUZS."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_CHECK_SZS_POWER_OFF": {
+    "message": "Error sending a command to the UUZS notification logic:\nMonitoring the condition of the UUZS.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_CHECK_SZS_NEED_RESTART": {
+    "message": "Error sending a command to the UUZS notification logic:\nMonitoring the condition of the UUZS.\nThe PC needs to be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_CHECK_SZS_POWER_OFF_NEED_RESTART": {
+    "message": "Error sending a command to the UUZS notification logic:\nMonitoring the condition of the UUZS.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds.\nThen the PC must be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_UNKNOWN": {
+    "message": "Error sending command to PU notification logic:\nRunning script, source not registered."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_UNKNOWN_POWER_OFF": {
+    "message": "Error sending command to PU notification logic:\nRunning script, source not registered.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_UNKNOWN_NEED_RESTART": {
+    "message": "Error sending command to PU notification logic:\nRunning script, source not registered.\nThe PC needs to be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_UNKNOWN_POWER_OFF_NEED_RESTART": {
+    "message": "Error sending command to PU notification logic:\nRunning script, source not registered.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds.\nThen the PC must be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_SITUATION": {
+    "message": "Error sending command to PU notification logic:\nRunning script '$1'."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_SITUATION_POWER_OFF": {
+    "message": "Error sending command to PU notification logic:\nRunning script '$1'.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_SITUATION_NEED_RESTART": {
+    "message": "Error sending command to PU notification logic:\nRunning script '$1'.\nThe PC needs to be rebooted."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_SITUATION_POWER_OFF_NEED_RESTART": {
+    "message": "Error sending command to PU notification logic:\nRunning script '$1'.\nThe PC must be put into sleep mode (to turn off the power)\nfollowed by restoration of operation within 60 seconds.\nThen the PC must be rebooted."
+  },
+  "IDS_STRING_RECEIVE_CMD_START_SITUATION_SOURCE": {
+    "message": "The command 'Run alert script' was received:\nName:\n'$1'.\nSource: '$2'."
+  },
+  "IDS_STRING_RECEIVE_CMD_CONTINUE_SITUATION_SOURCE": {
+    "message": "The 'Additional notification' command was received:\nName:\n'$1'.\nSource: '$2'."
+  },
+  "IDS_STRING_RECEIVE_CMD_STOP_SITUATION_SOURCE": {
+    "message": "The 'Stop Alert' command was received:\nName:\n'$1'.\nSource: '$2'."
+  },
+  "IDS_STRING_RECEIVE_CMD_START_NO_SITUATION_SOURCE": {
+    "message": "The command 'Run alert script' was received:\nName: script not assigned.\nSource: '$1'."
+  },
+  "IDS_STRING_RECEIVE_CMD_CONTINUE_NO_SITUATION_SOURCE": {
+    "message": "The 'Additional notification' command was received:\nName: script not assigned.\nSource: '$1'."
+  },
+  "IDS_STRING_RECEIVE_CMD_STOP_NO_SITUATION_SOURCE": {
+    "message": "The 'Stop Alert' command was received:\nName: script not assigned.\nSource: '$1'."
+  },
+  "IDS_STRING_RECEIVE_CMD_START_SITUATION_NO_SOURCE": {
+    "message": "The command 'Run notification script' was received:\nName:\n'$1'.\nSource not registered."
+  },
+  "IDS_STRING_RECEIVE_CMD_CONTINUE_SITUATION_NO_SOURCE": {
+    "message": "The 'Additional notification' command was received:\nName:\n'$1'.\nSource not registered."
+  },
+  "IDS_STRING_RECEIVE_CMD_STOP_SITUATION_NO_SOURCE": {
+    "message": "The 'Stop Alert' command was received:\nName:\n'$1'.\nSource not registered."
+  },
+  "IDS_STRING_RECEIVE_CMD_START_NO_SITUATION_NO_SOURCE": {
+    "message": "The command 'Run alert script' was received:\nName: script not assigned.\nSource not registered."
+  },
+  "IDS_STRING_RECEIVE_CMD_CONTINUE_NO_SITUATION_NO_SOURCE": {
+    "message": "The 'Additional notification' command was received:\nName: script not assigned.\nSource not registered."
+  },
+  "IDS_STRING_RECEIVE_CMD_STOP_NO_SITUATION_NO_SOURCE": {
+    "message": "The 'Stop Alert' command was received:\nName: script not assigned.\nSource not registered."
+  },
+  "START_AUTOMATIC_CLEAR_LOGS_DB": {
+    "message": "Scheduled cleaning of outdated data has begun. Version - $1."
+  },
+  "START_AUTOMATIC_BACKUP_DB": {
+    "message": "Scheduled database backup started saving. Version - $1."
+  },
+  "START_MANUAL_BACKUP_DB": {
+    "message": "Start saving the backup of the database by user. Version - $1."
+  },
+  "START_AUTOMATIC_RESTORE_DB": {
+    "message": "Scheduled database restore has begun. Version - $1."
+  },
+  "START_MANUAL_RESTORE_DB": {
+    "message": "Database recovery begins by user. Version - $1."
+  },
+  "START_AUTOMATIC_FULL_RESTORE_FROM_FILE": {
+    "message": "Scheduled restore data for the entire complex from file has begun. Version - $1."
+  },
+  "START_MANUAL_FULL_RESTORE_FROM_FILE": {
+    "message": "Restore data for the entire complex from file begins by user. Версия - $1."
+  },
+  "SUCCESS_AUTOMATIC_CLEAR_LOGS_DB": {
+    "message": "Successfully cleared outdated data on schedule. Version - $1."
+  },
+  "SUCCESS_AUTOMATIC_BACKUP_DB": {
+    "message": "Successfully save scheduled database backup. Version - $1."
+  },
+  "SUCCESS_MANUAL_BACKUP_DB": {
+    "message": "Successful saving backup of the database by user. Version - $1."
+  },
+  "SUCCESS_AUTOMATIC_RESTORE_DB": {
+    "message": "Successful database restore on schedule. Version - $1."
+  },
+  "SUCCESS_MANUAL_RESTORE_DB": {
+    "message": "Successful restoring of the database by user. Version - $1."
+  },
+  "SUCCESS_AUTOMATIC_FULL_RESTORE_FROM_FILE": {
+    "message": "Successful restoring data for the entire complex from file on schedule. Version - $1."
+  },
+  "SUCCESS_MANUAL_FULL_RESTORE_FROM_FILE": {
+    "message": "Successful restoring data for the entire complex from file by user. Version - $1."
+  },
+  "ERROR_AUTOMATIC_CLEAR_LOGS_DB": {
+    "message": "Error clearing outdated data on schedule. Version - $1."
+  },
+  "ERROR_AUTOMATIC_BACKUP_DB": {
+    "message": "Error saving database on schedule. Version - $1."
+  },
+  "ERROR_MANUAL_BACKUP_DB": {
+    "message": "Error saving database by user. Version - $1."
+  },
+  "ERROR_AUTOMATIC_RESTORE_DB": {
+    "message": "Error restoring database on schedule. Version - $1."
+  },
+  "ERROR_MANUAL_RESTORE_DB": {
+    "message": "Database restore failed by user. Version - $1."
+  },
+  "ERROR_AUTOMATIC_FULL_RESTORE_FROM_FILE": {
+    "message": "Error restoring data for the entire complex from file on schedule. Version - $1."
+  },
+  "ERROR_MANUAL_FULL_RESTORE_FROM_FILE": {
+    "message": "Restoring data for the entire complex from file failed by user. Version - $1."
+  }
+}

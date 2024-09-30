@@ -3,35 +3,47 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Запуск оповещения на подчиненном ПУ</title>
-    <link rel="icon" type="image/png" href="images/icon.png" />
+    <title data-i18n="startSubCuTitle"><!--Запуск оповещения на подчиненном ПУ - Программный комплекс оповещения--></title>
+    <link rel="icon" type="image/svg" href="images/startsubcu.svg" />
     <link rel="stylesheet" href="css/app.css" />
 </head>
 
 <body>
     <div>
-        <table class="table table-pointer">
+        <h4 name="header" class="pageTitle p-3 m-0" data-i18n="historyLaunchAlert"></h4>
+        <div class="d-grid w-100">
+            <input type="text" name="searchField" data-i18n-placeholder="fitrl" class="form-input m-2" />
+        </div>
+        <table class="table table-sort">
             <thead class="fs-1-1">
                 <tr>
-                    <th title="Подконтрольный ПУ">Подконтрольный ПУ</th>
-                    <th title="Инициатор запуска">Инициатор запуска</th>
-                    <th title="Начало оповещения">Начало оповещения</th>
-                    <th title="Подсистема">Подсистема</th>
-                    <th title="Наименование сценария">Наименование сценария</th>
-                    <th title="Наименование сообщения">Наименование сообщения</th>
+                    <th class="array-down" data-i18n-title data-i18n="thLocalTime"></th>
+                    <th data-i18n-title data-i18n="thEndPoint"></th>
+                    <th data-i18n-title data-i18n="thSubCu"></th>
+                    <th data-i18n-title data-i18n="thInitiatorLaunch"></th>
+                    <th data-i18n-title data-i18n="thBeginNotify"></th>
+                    <th data-i18n-title data-i18n="thSubSystem"></th>
+                    <th data-i18n-title data-i18n="thNameSit"></th>
+                    <th data-i18n-title data-i18n="thNameMessage"></th>
                 </tr>
             </thead>
             <tbody>
             </tbody>
             <tfoot style="background:none;" class="d-none">
                 <tr>
-                    <td colspan="6">
-                        <audio controls="controls" class="d-none" preload="metadata" type="audio/wav" />
+                    <td colspan="8">
+                        <audio controls="controls" preload="metadata" type="audio/wav" />
                     </td>
                 </tr>
             </tfoot>
         </table>
     </div>
+
+    <footer is="footer-version"></footer>
+
+    <script src="js/localization.js"></script>
     <script src="js/startsessionsub.js"></script>
+    <script src="js/filterAndSortForTable.js"></script>
+    <script src="js/footerForVersion.js"></script>
 </body>
 </html>

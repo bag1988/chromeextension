@@ -3,24 +3,35 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Системные уведомления</title>
-    <link rel="icon" type="image/png" href="images/icon.png" />
+    <title data-i18n="extTitle"><!--Системные уведомления - Программный комплекс оповещения--></title>
+    <link rel="icon" type="image/svg" href="images/icon.svg" />
     <link rel="stylesheet" href="css/app.css" />
 </head>
 
 <body>
     <div>
-        <table class="table">
+        <h4 name="header" class="pageTitle p-3 m-0" data-i18n="historyNotification"></h4>
+        <div class="d-grid w-100">
+            <input type="text" name="searchField" data-i18n-placeholder="fitrl" class="form-input m-2" />
+        </div>
+        <table class="table table-sort">
             <thead class="fs-1-1">
                 <tr>
-                    <th title="Дата">Дата</th>
-                    <th title="Сообщение">Сообщение</th>
+                    <th class="array-down" data-i18n-title data-i18n="thData"></th>
+                    <th data-i18n-title data-i18n="thEndPoint"></th>
+                    <th data-i18n-title data-i18n="thMessage"></th>
                 </tr>
             </thead>
             <tbody>
-            </tbody>            
+            </tbody>
         </table>
     </div>
+
+    <footer is="footer-version"></footer>
+
+    <script src="js/localization.js"></script>
     <script src="js/currentnotification.js"></script>
+    <script src="js/filterAndSortForTable.js"></script>
+    <script src="js/footerForVersion.js"></script>
 </body>
 </html>

@@ -3,34 +3,49 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Настройки системных уведомление ПКО</title>
+    <title data-i18n="popTitle"><!--Настройки системных уведомление ПКО--></title>
     <link rel="stylesheet" href="css/app.css" />
 </head>
 
-<body>
-    <main class="p-4 fs-0-8">
-        <h3 style="white-space: nowrap;">IP адреса серверов уведомлений</h3>
+<body>    
+    <h4 name="header" class="pageTitle p-3 m-0">
+        <span class="spinner-border spinner-border-sm me-2"></span>
+        <!--Загрузка...-->
+        <text data-i18n="loading"></text>
+    </h4>
+    <main class="px-4 fs-0-8">
+        <h3 class="mt-1" data-i18n="endPointsConnectig" style="white-space: nowrap;"><!--IP адреса серверов уведомлений--></h3>
         <form class="center">
-            <table class="table divgroup text-center">
+            <table class="table text-center">
                 <thead>
                     <tr>
-                        <th title="IP адрес">IP адрес</th>
-                        <th title="Состояние">Состояние</th>
-                        <th title="Включено">Включено</th>
+                        <th data-i18n-title data-i18n="thEndPoint"></th>
+                        <th data-i18n-title data-i18n="thState"></th>
+                        <th data-i18n-title data-i18n="thEnabled"></th>
                     </tr>
                 </thead>
                 <tbody>
                 </tbody>
             </table>
             <p>
-                <button class="form-button btn-outline-primary" type="submit">Сохранить</button>
-            </p>            
-        </form>        
-        <footer>
-            <small style="display: block;text-align: center;margin-top: 0.5rem;"></small>
-        </footer>
+                <button class="form-button btn-outline-primary" data-i18n="btnSave" type="submit"><!--Сохранить--></button>
+            </p>
+        </form>
+        <div style="display:flex">
+            <label data-i18n="displayLanguage" style="margin-right:1rem;"><!--Язык отображения--></label>
+            <select name="changeLanguage" class="form-input" style="flex:auto;">
+                <option data-i18n="displaySystem" value=""></option>
+                <option data-i18n="displayRU" value="ru-RU"></option>
+                <option data-i18n="displayEN" value="en-US">en-US</option>
+            </select>
+        </div>
+
+        <footer class="fs-0-8" is="footer-version"></footer>
     </main>
+
+    <script src="js/localization.js"></script>
     <script src="js/popup.js"></script>
+    <script src="js/footerForVersion.js"></script>
 </body>
 
 </html>

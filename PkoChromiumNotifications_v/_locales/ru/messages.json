@@ -1,0 +1,566 @@
+﻿{
+  "extTitle": {
+    "message": "Системные уведомления - Программный комплекс оповещения"
+  },
+  "popTitle": {
+    "message": "Настройки системных уведомление ПКО"
+  },
+  "startSubCuTitle": {
+    "message": "Запуск оповещения на подчиненном ПУ - Программный комплекс оповещения"
+  },
+  "extDesc": {
+    "message": "Программный комплекс оповещения"
+  },
+  "loading": {
+    "message": "Загрузка..."
+  },
+  "day": {
+    "message": "дней"
+  },
+  "timeoutMessage": {
+    "message": "Истекло время ожидания подтверждения, или ответ был получен с другого пункта."
+  },
+  "btnCancel": {
+    "message": "Отмена"
+  },
+  "btnConfirm": {
+    "message": "Подтвердить"
+  },
+  "btnSave": {
+    "message": "Сохранить"
+  },
+  "btnClose": {
+    "message": "Закрыть"
+  },
+  "errGetData": {
+    "message": "Ошибка получения данных!"
+  },
+  "confirmIsNotRequired": {
+    "message": "Подтверждение не требуется"
+  },
+  "aCommandForExecution": {
+    "message": "Получена команда для исполнения"
+  },
+  "waitingText": {
+    "message": "В ожидании"
+  },
+  "confirmIsRequired": {
+    "message": "Требуется подтверждение"
+  },
+  "fitrl": {
+    "message": "Фильтр"
+  },
+  "thData": {
+    "message": "Дата"
+  },
+  "thMessage": {
+    "message": "Сообщение"
+  },
+  "thEndPoint": {
+    "message": "Конечная точка"
+  },
+  "thEnabled": {
+    "message": "Включено"
+  },
+  "thState": {
+    "message": "Состояние"
+  },
+  "thLocalTime": {
+    "message": "Локальное время"
+  },
+  "thSubCu": {
+    "message": "Подконтрольный ПУ"
+  },
+  "thInitiatorLaunch": {
+    "message": "Инициатор запуска"
+  },
+  "thBeginNotify": {
+    "message": "Начало оповещения"
+  },
+  "thSubSystem": {
+    "message": "Подсистема"
+  },
+  "thNameSit": {
+    "message": "Наименование сценария"
+  },
+  "thNameMessage": {
+    "message": "Наименование сообщения"
+  },
+  "errConnectServer": {
+    "message": "Ошибка подключения к серверу уведомлений"
+  },
+  "version": {
+    "message": "Версия"
+  },
+  "connected": {
+    "message": "Подключено"
+  },
+  "connecting": {
+    "message": "Идет подключение"
+  },
+  "reconnecting": {
+    "message": "Переподключение"
+  },
+  "forbidden": {
+    "message": "Нет разрешения"
+  },
+  "disconnected": {
+    "message": "Отключено"
+  },
+  "errChromium109": {
+    "message": "Установите версию Chromium не ниже 109."
+  },
+  "errStartExtension": {
+    "message": "Ошибка запуска \"Системные уведомления - Программный комплекс оповещения\""
+  },
+  "errUpdateExtension": {
+    "message": "Ошибка обновления \"Системные уведомления - Программный комплекс оповещения\". Обновите расширение вручную"
+  },
+  "systemAso": {
+    "message": "АСО"
+  },
+  "systemUzs": {
+    "message": "УУЗС"
+  },
+  "systemCu": {
+    "message": "Система управления"
+  },
+  "systemP16": {
+    "message": "П16x, ПДУ АСО"
+  },
+  "systemNoFound": {
+    "message": "Нет такой подсистемы"
+  },
+  "endPointsConnectig": {
+    "message": "Конечные точки серверов уведомлений"
+  },
+  "changeLanguage": {
+    "message": "Установлена новая локализация"
+  },
+  "displayLanguage": {
+    "message": "Язык отображения"
+  },
+  "displaySystem": {
+    "message": "Локализация браузера"
+  },
+  "displayRU": {
+    "message": "Русский (Росси́я)"
+  },
+  "displayEN": {
+    "message": "Английский (Соединенные Штаты)"
+  },
+  "launchControlCu": {
+    "message": "Запуск оповещения на подчиненном ПУ $1 ($2)"
+  },
+  "newVersionAvailable": {
+    "message": "⚠ Доступна новая версия"
+  },
+  "versionCurrent": {
+    "message": "✓ Версия актуальна"
+  },
+  "poName": {
+    "message": "Программный комплекс оповещения"
+  },
+  "poNameKAE": {
+    "message": "гражданской защиты «Уран»"
+  },
+  "poNameSensor": {
+    "message": "АС «ОСОДУ»"
+  },
+  "poNameSensorM": {
+    "message": "Глобальная система оповещения"
+  },
+  "moduleNotification": {
+    "message": "Модуль «Системные уведомления»"
+  },
+  "historyNotification": {
+    "message": "История системных уведомлений"
+  },
+  "historyLaunchAlert": {
+    "message": "История запуска оповещений на подчиненных пунктах управления (ПУ)"
+  },
+  "CHANNEL_DISABLED_CONNECTION_TIMEOUT": {
+    "message": "Канал отключен согласно тайм-аута соединения."
+  },
+  "CHANNEL_DISABLED_INITIALIZATION_TIMEOUT": {
+    "message": "Канал отключен согласно тайм-аута инициализации."
+  },
+  "CHANNEL_DISCONNECTED_CONNECTION_ERRORS": {
+    "message": "Канал отключен, ошибки инициализации, всего: $1."
+  },
+  "CHANNEL_DISCONNECTED_PERMISSIBLE_ERRORS": {
+    "message": "Канал отключен, превышено допустимое число ошибок, всего: $1."
+  },
+  "CHANNEL_DISCONNECTED_UNRESOLVABLE_ERROR_UNSPECIFIED": {
+    "message": "Канал отключен, неразрешимая ошибка: отсутствует код ошибки."
+  },
+  "CHANNEL_NOT_INITIALIZED_UNRESOLVABLE_ERROR_UNSPECIFIED": {
+    "message": "Канал не инициализирован, неразрешимая ошибка: отсутствует код ошибки."
+  },
+  "CHANNEL_DISCONNECTED_UNRESOLVABLE_ERROR_UNKNOWN": {
+    "message": "Канал отключен, неразрешимая ошибка: неизвестный код ошибки '$1'."
+  },
+  "CHANNEL_NOT_INITIALIZED_UNRESOLVABLE_ERROR_UNKNOWN": {
+    "message": "Канал не инициализирован, неразрешимая ошибка: неизвестный код ошибки '$1'."
+  },
+  "CHANNEL_DISCONNECTED_UNRESOLVABLE_ERROR_CHANNEL_BLOCKED_BY_LICENSE": {
+    "message": "Канал отключен, неразрешимая ошибка: отсутствуют доступные лицензии (каналов запрошено больше, чем разрешено)."
+  },
+  "CHANNEL_NOT_INITIALIZED_UNRESOLVABLE_ERROR_CHANNEL_BLOCKED_BY_LICENSE": {
+    "message": "Канал не инициализирован, неразрешимая ошибка: отсутствуют доступные лицензии (каналов запрошено больше, чем разрешено)."
+  },
+  "CHANNEL_DISCONNECTED_UNRESOLVABLE_ERROR_PBX_NO_REGISTRATION": {
+    "message": "Канал отключен, неразрешимая ошибка: отсутствует регистрация на АТС."
+  },
+  "CHANNEL_NOT_INITIALIZED_UNRESOLVABLE_ERROR_PBX_NO_REGISTRATION": {
+    "message": "Канал не инициализирован, неразрешимая ошибка: отсутствует регистрация на АТС."
+  },
+  "CHANNEL_DISCONNECTED_UNRESOLVABLE_ERROR_SND_CARD_NOT_WORK": {
+    "message": "Канал отключен, неразрешимая ошибка: невозможно использовать звуковую карту."
+  },
+  "CHANNEL_NOT_INITIALIZED_UNRESOLVABLE_ERROR_SND_CARD_NOT_WORK": {
+    "message": "Канал не инициализирован, неразрешимая ошибка: невозможно использовать звуковую карту."
+  },
+  "ERRORS_CHANNEL": {
+    "message": "Ошибки на канале, всего: $1."
+  },
+  "RESET_CHANNEL_STATE": {
+    "message": "Сброшено состояние канала."
+  },
+  "IDS_STRING_STARTED_BY_SHEDULE_EX": {
+    "message": "Запущено оповещение по расписанию: [$1]"
+  },
+  "IDS_STRING_ERR_START_SHEDULE_EX": {
+    "message": "Ошибка запуска оповещения по расписанию: [$1]"
+  },
+  "IDS_AUTOTASK_INVALIDSESS_EX": {
+    "message": "Ошибка запуска дооповещения по расписанию, оповещение не производилось: [$1]"
+  },
+  "IDS_STRING_RENOTIFY_BY_SHEDULE_EX": {
+    "message": "Запущено дооповещение по расписанию: [$1]"
+  },
+  "IDS_STRING_ERR_RENOTIFY_BY_SHEDULE_EX": {
+    "message": "Ошибка запуска дооповещения по расписанию: [$1]"
+  },
+  "LICENSE_UPDATED_KEY_INSERTED": {
+    "message": "Лицензия обновлена. Ключ '$1' с типом лицензии '$2' вставлен."
+  },
+  "LICENSE_UPDATED_KEY_REMOVED": {
+    "message": "Лицензия обновлена. Ключ '$1' с типом лицензии '$2' извлечен."
+  },
+  "LICENSE_UPDATED_KEY_INSERTED_NOT_EXPIRED_WITH_TIME": {
+    "message": "Лицензия обновлена. Ключ '$1' с типом лицензии '$2' вставлен, истекает $3."
+  },
+  "LICENSE_UPDATED_KEY_REMOVED_NOT_EXPIRED_WITH_TIME": {
+    "message": "Лицензия обновлена. Ключ '$1' с типом лицензии '$2' извлечен, истекает $3."
+  },
+  "LICENSE_UPDATED_KEY_INSERTED_EXPIRED_WITH_TIME": {
+    "message": "Лицензия обновлена. Ключ '$1' с типом лицензии '$2' вставлен, истекла $3."
+  },
+  "LICENSE_UPDATED_KEY_REMOVED_EXPIRED_WITH_TIME": {
+    "message": "Лицензия обновлена. Ключ '$1' с типом лицензии '$2' извлечен, истекла $3."
+  },
+  "LICENSE_UNAVAILABLE": {
+    "message": "Лицензия больше недоступна. Ключ '$1' с типом лицензии '$2' не найден."
+  },
+  "LICENSE_EXPIRES_SOON_KEY_INSERTED": {
+    "message": "Лицензия истекает! Ключ '$1' с типом лицензии '$2' вставлен."
+  },
+  "LICENSE_EXPIRES_SOON_KEY_REMOVED": {
+    "message": "Лицензия истекает! Ключ '$1' с типом лицензии '$2' извлечен."
+  },
+  "LICENSE_EXPIRES_SOON_KEY_INSERTED_NOT_EXPIRED_WITH_TIME": {
+    "message": "Лицензия истекает! Ключ '$1' с типом лицензии '$2' вставлен, истекает $3."
+  },
+  "LICENSE_EXPIRES_SOON_KEY_REMOVED_NOT_EXPIRED_WITH_TIME": {
+    "message": "Лицензия истекает! Ключ '$1' с типом лицензии '$2' извлечен, истекает $3."
+  },
+  "LICENSE_EXPIRES_SOON_KEY_INSERTED_EXPIRED_WITH_TIME": {
+    "message": "Лицензия истекает! Ключ '$1' с типом лицензии '$2' вставлен, истекла $3."
+  },
+  "LICENSE_EXPIRES_SOON_KEY_REMOVED_EXPIRED_WITH_TIME": {
+    "message": "Лицензия истекает! Ключ '$1' с типом лицензии '$2' извлечен, истекла $3."
+  },
+  "LICENSE_EXPIRED": {
+    "message": "Лицензия истекла! Ключ '$1' с типом лицензии '$2' не найден."
+  },
+  "IDS_STRING_CHECK_STATE_LONG_AGO_EX": {
+    "message": "Контроль состояния давно не производился [$1]"
+  },
+  "IDS_STRING_AVAR_IN_ASO_EX": {
+    "message": "Авария в подсистеме АСО: [$1] : $2"
+  },
+  "IDS_STRING_AVAR_IN_CU_EX1": {
+    "message": "Авария в подсистеме управления: [$1]"
+  },
+  "IDS_STRING_AVAR_IN_CU_EX2": {
+    "message": "Авария в подсистеме управления: [$1] $2"
+  },
+  "IDS_STRING_AVAR_IN_UUZS_EX": {
+    "message": "Авария УУЗС [$1] : Ошибка инициализации устройства"
+  },
+  "IDS_STRING_POS_EX": {
+    "message": "$1: - Сработала пожарная сигнализация"
+  },
+  "IDS_STRING_POS2_EX": {
+    "message": "$1: - Сработала охранная сигнализация"
+  },
+  "IDS_STRING_SENSOR_SECURITY_EX": {
+    "message": "$1: - Сработал датчик вскрытия"
+  },
+  "IDS_STRING_NOT_ANSWER_EX": {
+    "message": "$1: - Нет ответа оконечного устройства"
+  },
+  "IDS_STRING_ERR_EPU_EX": {
+    "message": "$1: - Ошибка при работе с ЭПУ"
+  },
+  "IDS_STRING_ERR_UZS_EX": {
+    "message": "$1: - Ошибка оконечного устройства"
+  },
+  "IDS_STRING_UZS_NOT_ANSWER_EX": {
+    "message": "$1: УЗС не отвечает"
+  },
+  "IDS_STRING_START_CU_FROM_CU_EX": {
+    "message": "Запуск штабной подсистемы от пункта управления [$1]"
+  },
+  "IDS_STRING_START_CU_FROM_UNKNOWN_CU": {
+    "message": "Запуск штабной подсистемы от неизвестного пункта управления"
+  },
+  "NOTIFICATION_ACCEPTANCE_COMMAND_P16_X_NO_CU_NO_SITUATIONS": {
+    "message": "Получена команда '$1' [№$2].\nИсточник не задан.\nНа данную команду сценарии не назначены.\nТребуется подтверждение получения данной команды."
+  },
+  "NOTIFICATION_ACCEPTANCE_COMMAND_P16_X_WITH_CU_NO_SITUATIONS": {
+    "message": "Получена команда '$1' [№$2].\nИсточник: '$3'.\nНа данную команду сценарии не назначены.\nТребуется подтверждение получения данной команды."
+  },
+  "NOTIFICATION_ACCEPTANCE_COMMAND_P16_X_NO_CU_WITH_SITUATIONS": {
+    "message": "Получена команда '$1' [№$2].\nИсточник не задан.\nТребуется подтверждение на запуск оповещения по сценариям:$4."
+  },
+  "NOTIFICATION_ACCEPTANCE_COMMAND_P16_X_WITH_CU_WITH_SITUATIONS": {
+    "message": "Получена команда '$1' [№$2].\nИсточник: '$3'.\nТребуется подтверждение на запуск оповещения по сценариям:$4."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_STOP_POWER_OFF": {
+    "message": "Ошибка передачи команды в логику оповещения АСО:\nОстанов оповещения.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_STOP_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения АСО:\nОстанов оповещения.\nПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_STOP_POWER_OFF_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения АСО:\nОстанов оповещения.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд.\nЗатем ПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_STOP_POWER_OFF": {
+    "message": "Ошибка передачи команды в логику оповещения УУЗС:\nОстанов оповещения.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_STOP_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения УУЗС:\nОстанов оповещения.\nПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_STOP_POWER_OFF_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения УУЗС:\nОстанов оповещения.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд.\nЗатем ПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_STOP_POWER_OFF": {
+    "message": "Ошибка передачи команды в логику оповещения ПУ:\nОстанов оповещения.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_STOP_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения ПУ:\nОстанов оповещения.\nПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_STOP_POWER_OFF_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения ПУ:\nОстанов оповещения.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд.\nЗатем ПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_CONTINUE_POWER_OFF": {
+    "message": "Ошибка передачи команды в логику оповещения АСО:\nДооповещение.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_CONTINUE_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения АСО:\nДооповещение.\nПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_CONTINUE_POWER_OFF_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения АСО:\nДооповещение.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд.\nЗатем ПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_CONTINUE_POWER_OFF": {
+    "message": "Ошибка передачи команды в логику оповещения УУЗС:\nДооповещение.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_CONTINUE_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения УУЗС:\nДооповещение.\nПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_CONTINUE_POWER_OFF_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения УУЗС:\nДооповещение.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд.\nЗатем ПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_CONTINUE_POWER_OFF": {
+    "message": "Ошибка передачи команды в логику оповещения ПУ:\nДооповещение.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_CONTINUE_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения ПУ:\nДооповещение.\nПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_CONTINUE_POWER_OFF_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения ПУ:\nДооповещение.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд.\nЗатем ПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_SITUATION": {
+    "message": "Ошибка передачи команды в логику оповещения АСО:\nЗапуск сценария '$1'."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_SITUATION_POWER_OFF": {
+    "message": "Ошибка передачи команды в логику оповещения АСО:\nЗапуск сценария '$1'.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_SITUATION_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения АСО:\nЗапуск сценария '$1'.\nПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_SITUATION_POWER_OFF_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения АСО:\nЗапуск сценария '$1'.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд.\nЗатем ПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_CHECK_ASO": {
+    "message": "Ошибка передачи команды в логику оповещения АСО:\nКонтроль состояния АСО."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_CHECK_ASO_POWER_OFF": {
+    "message": "Ошибка передачи команды в логику оповещения АСО:\nКонтроль состояния АСО.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_CHECK_ASO_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения АСО:\nКонтроль состояния АСО.\nПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_ASO_START_CHECK_ASO_POWER_OFF_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения АСО:\nКонтроль состояния АСО.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд.\nЗатем ПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_SITUATION": {
+    "message": "Ошибка передачи команды в логику оповещения УУЗС:\nЗапуск сценария '$1'."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_SITUATION_POWER_OFF": {
+    "message": "Ошибка передачи команды в логику оповещения УУЗС:\nЗапуск сценария '$1'.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_SITUATION_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения УУЗС:\nЗапуск сценария '$1'.\nПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_SITUATION_POWER_OFF_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения УУЗС:\nЗапуск сценария '$1'.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд.\nЗатем ПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_CHECK_SZS": {
+    "message": "Ошибка передачи команды в логику оповещения УУЗС:\nКонтроль состояния УУЗС."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_CHECK_SZS_POWER_OFF": {
+    "message": "Ошибка передачи команды в логику оповещения УУЗС:\nКонтроль состояния УУЗС.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_CHECK_SZS_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения УУЗС:\nКонтроль состояния УУЗС.\nПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_SZS_START_CHECK_SZS_POWER_OFF_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения УУЗС:\nКонтроль состояния УУЗС.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд.\nЗатем ПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_UNKNOWN": {
+    "message": "Ошибка передачи команды в логику оповещения ПУ:\nЗапуск сценария, источник не зарегистрирован."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_UNKNOWN_POWER_OFF": {
+    "message": "Ошибка передачи команды в логику оповещения ПУ:\nЗапуск сценария, источник не зарегистрирован.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_UNKNOWN_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения ПУ:\nЗапуск сценария, источник не зарегистрирован.\nПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_UNKNOWN_POWER_OFF_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения ПУ:\nЗапуск сценария, источник не зарегистрирован.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд.\nЗатем ПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_SITUATION": {
+    "message": "Ошибка передачи команды в логику оповещения ПУ:\nЗапуск сценария '$1'."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_SITUATION_POWER_OFF": {
+    "message": "Ошибка передачи команды в логику оповещения ПУ:\nЗапуск сценария '$1'.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_SITUATION_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения ПУ:\nЗапуск сценария '$1'.\nПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_ERROR_TRANSMIT_STAFF_START_SITUATION_POWER_OFF_NEED_RESTART": {
+    "message": "Ошибка передачи команды в логику оповещения ПУ:\nЗапуск сценария '$1'.\nПЭВМ необходимо перевести в режим сна (для отключения питания)\nс последующим восстановлением работы в течение 60 секунд.\nЗатем ПЭВМ необходимо перезагрузить."
+  },
+  "IDS_STRING_RECEIVE_CMD_START_SITUATION_SOURCE": {
+    "message": "Поступила команда 'Запуск сценария оповещения':\nНаименование:\n'$1'.\nИсточник: '$2'."
+  },
+  "IDS_STRING_RECEIVE_CMD_CONTINUE_SITUATION_SOURCE": {
+    "message": "Поступила команда 'Дооповещение':\nНаименование:\n'$1'.\nИсточник: '$2'."
+  },
+  "IDS_STRING_RECEIVE_CMD_STOP_SITUATION_SOURCE": {
+    "message": "Поступила команда 'Останов оповещения':\nНаименование:\n'$1'.\nИсточник: '$2'."
+  },
+  "IDS_STRING_RECEIVE_CMD_START_NO_SITUATION_SOURCE": {
+    "message": "Поступила команда 'Запуск сценария оповещения':\nНаименование: сценарий не назначен.\nИсточник: '$1'."
+  },
+  "IDS_STRING_RECEIVE_CMD_CONTINUE_NO_SITUATION_SOURCE": {
+    "message": "Поступила команда 'Дооповещение':\nНаименование: сценарий не назначен.\nИсточник: '$1'."
+  },
+  "IDS_STRING_RECEIVE_CMD_STOP_NO_SITUATION_SOURCE": {
+    "message": "Поступила команда 'Останов оповещения':\nНаименование: сценарий не назначен.\nИсточник: '$1'."
+  },
+  "IDS_STRING_RECEIVE_CMD_START_SITUATION_NO_SOURCE": {
+    "message": "Поступила команда 'Запуск сценария оповещения':\nНаименование:\n'$1'.\nИсточник не зарегистрирован."
+  },
+  "IDS_STRING_RECEIVE_CMD_CONTINUE_SITUATION_NO_SOURCE": {
+    "message": "Поступила команда 'Дооповещение':\nНаименование:\n'$1'.\nИсточник не зарегистрирован."
+  },
+  "IDS_STRING_RECEIVE_CMD_STOP_SITUATION_NO_SOURCE": {
+    "message": "Поступила команда 'Останов оповещения':\nНаименование:\n'$1'.\nИсточник не зарегистрирован."
+  },
+  "IDS_STRING_RECEIVE_CMD_START_NO_SITUATION_NO_SOURCE": {
+    "message": "Поступила команда 'Запуск сценария оповещения':\nНаименование: сценарий не назначен.\nИсточник не зарегистрирован."
+  },
+  "IDS_STRING_RECEIVE_CMD_CONTINUE_NO_SITUATION_NO_SOURCE": {
+    "message": "Поступила команда 'Дооповещение':\nНаименование: сценарий не назначен.\nИсточник не зарегистрирован."
+  },
+  "IDS_STRING_RECEIVE_CMD_STOP_NO_SITUATION_NO_SOURCE": {
+    "message": "Поступила команда 'Останов оповещения':\nНаименование: сценарий не назначен.\nИсточник не зарегистрирован."
+  },
+  "START_AUTOMATIC_CLEAR_LOGS_DB": {
+    "message": "Началась очистка неактуальных данных по расписанию. Версия - $1."
+  },
+  "START_AUTOMATIC_BACKUP_DB": {
+    "message": "Началось сохранение резервной копии базы данных по расписанию. Версия - $1."
+  },
+  "START_MANUAL_BACKUP_DB": {
+    "message": "Началось сохранение резервной копии базы данных пользователем. Версия - $1."
+  },
+  "START_AUTOMATIC_RESTORE_DB": {
+    "message": "Началось восстановление базы данных по расписанию. Версия - $1."
+  },
+  "START_MANUAL_RESTORE_DB": {
+    "message": "Началось восстановление базы данных пользователем. Версия - $1."
+  },
+  "START_AUTOMATIC_FULL_RESTORE_FROM_FILE": {
+    "message": "Началось восстановление данных всего комплекса из файла по расписанию. Версия - $1."
+  },
+  "START_MANUAL_FULL_RESTORE_FROM_FILE": {
+    "message": "Началось восстановление данных всего комплекса из файла пользователем. Версия - $1."
+  },
+  "SUCCESS_AUTOMATIC_CLEAR_LOGS_DB": {
+    "message": "Успешная очистка неактуальных данных по расписанию. Версия - $1."
+  },
+  "SUCCESS_AUTOMATIC_BACKUP_DB": {
+    "message": "Успешное сохранение резервной копии базы данных по расписанию. Версия - $1."
+  },
+  "SUCCESS_MANUAL_BACKUP_DB": {
+    "message": "Успешное сохранение резервной копии базы данных пользователем. Версия - $1."
+  },
+  "SUCCESS_AUTOMATIC_RESTORE_DB": {
+    "message": "Успешное восстановление базы данных по расписанию. Версия - $1."
+  },
+  "SUCCESS_MANUAL_RESTORE_DB": {
+    "message": "Успешное восстановление базы данных пользователем. Версия - $1."
+  },
+  "SUCCESS_AUTOMATIC_FULL_RESTORE_FROM_FILE": {
+    "message": "Успешное восстановление данных всего комплекса из файла по расписанию. Версия - $1."
+  },
+  "SUCCESS_MANUAL_FULL_RESTORE_FROM_FILE": {
+    "message": "Успешное восстановление данных всего комплекса из файла пользователем. Версия - $1."
+  },
+  "ERROR_AUTOMATIC_CLEAR_LOGS_DB": {
+    "message": "Ошибка очистки неактуальных данных по расписанию. Версия - $1."
+  },
+  "ERROR_AUTOMATIC_BACKUP_DB": {
+    "message": "Ошибка сохранения базы данных по расписанию. Версия - $1."
+  },
+  "ERROR_MANUAL_BACKUP_DB": {
+    "message": "Ошибка сохранения базы данных пользователем. Версия - $1."
+  },
+  "ERROR_AUTOMATIC_RESTORE_DB": {
+    "message": "Ошибка восстановления базы данных по расписанию. Версия - $1."
+  },
+  "ERROR_MANUAL_RESTORE_DB": {
+    "message": "Ошибка восстановления базы данных пользователем. Версия - $1."
+  },
+  "ERROR_AUTOMATIC_FULL_RESTORE_FROM_FILE": {
+    "message": "Ошибка восстановления данных всего комплекса из файла по расписанию. Версия - $1."
+  },
+  "ERROR_MANUAL_FULL_RESTORE_FROM_FILE": {
+    "message": "Ошибка восстановления данных всего комплекса из файла пользователем. Версия - $1."
+  }
+}

@@ -1,5 +1,8 @@
+﻿
+window.addEventListener("load", loadPopUp);
 
-window.onload = () => {
+async function loadPopUp() {
+  await initLocalization();
   var form = document.querySelector("form");
   if (form) {
     form.onsubmit = () => {
@@ -11,41 +14,112 @@ window.onload = () => {
           let url = item.querySelector("input[type='text']")?.value;
           let enabled = item.querySelector("input[type='checkbox']")?.checked;
           if (url) {
-            urlConnects.push({ url: url, enabled: enabled});
+            urlConnects.push({ url: url, enabled: enabled });
           }
         });
       }
       chrome.storage.local.set({ urlConnects: urlConnects });
     }
   }
-  SetStateConnect();
+  chrome.runtime.sendMessage(null, { method: "getAllState" }, null, SetStateConnect);
 
-  chrome.storage.onChanged.addListener((object, areaName) => {
-    let tbody = document.querySelector("tbody");
-    if (tbody) {
-      if (areaName == "local") {
-        if (object.hubStates && object.hubStates.newValue != object.hubStates.oldValue) {
-          let hubStates = object.hubStates.newValue;
-          for (let item of hubStates) {
-            let tr = tbody.querySelector(`tr:has(input[value="${item.url}"])`);
-            if (tr) {
-              let td = tr.querySelector("td[name='state']");
-              if (td) {
-                td.innerHTML = GetState(item.state);
-              }
-            }
+  if (document.querySelector("[name='changeLanguage']")) {
+    document.querySelector("[name='changeLanguage']").value = localization.currentLocalization ?? "";
+    document.querySelector("[name='changeLanguage']").onchange = async (e) => {
+      if (e.target.value == "") {
+        await chrome.storage.local.remove(["language"]);
+      }
+      else {
+        await chrome.storage.local.set({ language: e.target.value });
+      }
+    };
+  }
+  chrome.runtime.onMessage.addListener((e) => {
+    if (e.method == "changeHubState") {
+      let tbody = document.querySelector("tbody");
+      if (tbody) {
+        let tr = tbody.querySelector(`tr:has(input[value="${e.url}"])`);
+        if (tr) {
+          let td = tr.querySelector("td[name='state']");
+          if (td) {
+            td.innerHTML = localization.getMessage(e.state.toLowerCase());
+            td.setAttribute("data-color", e.state.toLowerCase());
+            td.setAttribute("data-i18n", e.state.toLowerCase());
           }
         }
       }
     }
   });
 
-  if (document.querySelector("footer small")) {
-    document.querySelector("footer small").innerHTML = `Версия: ${chrome.runtime.getManifest().version}`;
+  WriteHeaderPKO();
+}
+
+/*
+
+buildNumber: "7.18.0-dev"
+companyName: "sensor"
+productName: "pko"
+
+*/
+
+async function WriteHeaderPKO() {
+  let companyName = await GetPKOVersion();
+  
+  let poText = companyName == "sensorm" ? "" : "poName";
+  let poName = "";
+  switch (companyName) {
+    case "kae":
+      poName = "poNameKAE";
+      break;
+    case "sensor":
+      poName = "poNameSensor";
+      break;
+    case "sensorm":
+      poName = "poNameSensorM";
+      break;
+  }
+
+  let headerHTML = `<text data-i18n="${poText}">${localization.getMessage(poText)}</text>
+                   <br><text data-i18n="${poName}">${localization.getMessage(poName)}</text>
+                   <br><small data-i18n="moduleNotification">${localization.getMessage("moduleNotification")}</small>`;
+
+
+  if (document.querySelector("[name='header']")) {
+    document.querySelector("[name='header']").innerHTML = headerHTML;
   }
 }
 
-async function SetStateConnect() {
+async function GetPKOVersion() {
+  let companyName = "";
+  try {
+    companyName = (await chrome.storage.local.get("companyName"))?.companyName;    
+    if (!companyName) {
+      let update_url = new URL(chrome.runtime.getManifest().update_url);
+      if (update_url.origin) {
+        let result = await fetch(`${update_url.origin}/api/v1/allow/PVersionFull`, {
+          method: "post", headers: {
+            "Content-Type": "application/json"
+          }
+        }).catch((e) => {
+          console.error(`Метод "PVersionFull" не найден или не доступен!`, e.message);
+        });
+        if (result) {
+          let PVersion = await result?.json();
+          if (PVersion?.companyName) {
+            companyName = PVersion.companyName;
+            chrome.storage.local.set({ companyName: companyName });
+          }
+        }
+      }
+    }
+  }
+  catch (e) {
+    console.error("Ошибка получения версии", e.message);
+  }
+  return companyName ?? "sensor";
+}
+
+async function SetStateConnect(hubStates) {
   let tbody = document.querySelector("tbody");
   if (tbody) {
     tbody.innerHTML = "";
@@ -53,11 +127,10 @@ async function SetStateConnect() {
 
   let result = await chrome.storage.local.get();
 
-  let hubStates = result.hubStates;
   let urlConnects = result.urlConnects;
   if (urlConnects) {
     for (let item of urlConnects) {
-      AddRow(item.url, hubStates?.find(x => x.url == item.url)?.state, item.enabled);
+      AddRow(item.url, hubStates.find(x => x.url == item.url)?.state, item.enabled);
     }
   }
   AddRow("", "", false);
@@ -65,31 +138,11 @@ async function SetStateConnect() {
 function AddRow(url, state, enabled) {
   let tbody = document.querySelector("tbody");
   if (tbody) {
-    console.info({ url: url, enabled: enabled });
     let rowHtml = `<tr class="white-space v-align-top">
-                          <td><input type="text" pattern="^((\\d{1,2}|1\\d\\d|2[0-4]\\d|25[0-5])\\.){3}(\\d{1,2}|1\\d\\d|2[0-4]\\d|25[0-5]):\\d{3,5}$" placeholder="xxx.xxx.xxx.xxx:xxxx" value="${url}" /></td>
-                          <td name="state">${GetState(state)}</td>
+                          <td><input class="form-input" type="text" pattern="^((\\d{1,2}|1\\d\\d|2[0-4]\\d|25[0-5])\\.){3}(\\d{1,2}|1\\d\\d|2[0-4]\\d|25[0-5]):\\d{3,5}$" placeholder="xxx.xxx.xxx.xxx:xxxx" value="${url}" /></td>
+                          <td name="state" data-color="${state.toLowerCase()}" data-i18n="${state.toLowerCase()}">${localization.getMessage(state.toLowerCase())}</td>
                           <td><input type="checkbox" ${enabled ? "checked" : ""} /></td>
                     </tr>`;
     tbody.insertAdjacentHTML("beforeend", rowHtml);
   }
-}
-function GetState(hubState) {
-  let text = "";
-  let color = "";
-  if (hubState) {
-    if (hubState == "Connected") {
-      text = "Подключено";
-      color = 'green';
-    }
-    else if (hubState == "Connecting" || hubState == "Reconnecting") {
-      text = "Идет подключение";
-      color = 'yellow';
-    }
-    else {
-      text = "Отключено";
-      color = 'red';
-    }
-  }
-  return `<span data-value="${hubState}" style="color:${color};">${text}</span>`;
 }

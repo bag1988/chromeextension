@@ -3,19 +3,32 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Системные уведомления ПКО</title>
-    <link rel="icon" type="image/png" href="images/icon.png" />
+    <title data-i18n="extTitle"><!--Системные уведомления - Программный комплекс оповещения--></title>
+    <link rel="icon" type="image/svg" href="images/confirm.svg" />
     <link rel="stylesheet" href="css/app.css" />
 </head>
 
 <body>
     <main>
-
+        <p class="bg-blue b-radius m-2 p-4">
+            <span class="spinner-border spinner-border-sm me-2"></span>
+            <!--Загрузка...-->
+            <text data-i18n="loading"></text>
+        </p>
     </main>
+    <p id="warningMessage" class="bg-warning b-radius m-2 p-4 d-none" data-i18n="timeoutMessage">
+        <!--Истекло время ожидания подтверждения, или ответ был получен с другого пункта.-->
+    </p>
     <div class="button-fixed p-4">
-        <button id="sumbitButton" type="button" class="form-button btn-outline-primary">Подтвердить</button>
-        <button id="cancelButton" type="button" class="form-button btn-outline-primary">Отмена</button>
+        <button id="sumbitButton" type="button" class="form-button btn-outline-primary" data-i18n="btnConfirm"><!--Подтвердить--></button>
+        <button id="cancelButton" type="button" class="form-button btn-outline-primary" data-i18n="btnCancel"><!--Отмена--></button>
+        <button id="closeButton" type="button" class="form-button btn-outline-primary d-none" data-i18n="btnClose"><!--Закрыть--></button>
     </div>
+
+    <footer is="footer-version"></footer>
+
+    <script src="js/localization.js"></script>
     <script src="js/AcceptanceNotification.js"></script>
+    <script src="js/footerForVersion.js"></script>
 </body>
 </html>

@@ -1,38 +1,38 @@
-﻿export async function ShowNotify(payload) {
+﻿export async function ShowNotify(title, payload) {
   try {
-    if (self.Notification.permission == "granted") {
-      if (payload.forSoundMessage) {        
-        self.registration.showNotification('Системные уведомления ПКО', {
-          icon: '/images/icon.png',
-          body: payload.forSoundMessage,
-          vibrate: [100, 50, 100],
-          requireInteraction: true,
-          data: { url: payload.url, detail: payload.detail }
-        });
-        try {
-          await chrome.runtime.sendMessage({ method: "playSound" });
+    await navigator.locks.request(
+      "localizationMessages",
+      { mode: "exclusive" },
+      async (lock) => {
+        if (self.Notification.permission == "granted") {
+          if (payload.forFixedNotify) {
+            self.registration.showNotification(title, {
+              icon: '/images/icon.svg',
+              body: payload.forFixedNotify,
+              vibrate: [100, 50, 100],
+              requireInteraction: true,
+              data: { url: payload.url, detail: payload.detail }
+            });
+          }
+          else if (payload.SystemNotification) {
+            self.registration.showNotification(title, {
+              icon: '/images/icon.svg',
+              body: payload.SystemNotification,
+              vibrate: [100, 50, 100]
+            });
+          }
+          else if (payload.noFixedNotify) {
+            self.registration.showNotification(title, {
+              icon: '/images/icon.svg',
+              body: payload.noFixedNotify,
+              data: { url: payload.url, detail: payload.detail }
+            });
+          }
         }
-        catch (er) {
-          console.error(er);
-        }
       }
-      else if (payload.SystemNotification) {       
-        self.registration.showNotification('Системные уведомления ПКО', {
-          icon: '/images/icon.png',
-          body: payload.SystemNotification,
-          vibrate: [100, 50, 100]
-        });
-      }
-      else if (payload.noSoundMessage) {       
-        self.registration.showNotification('Системные уведомления ПКО', {
-          icon: '/images/icon.png',
-          body: payload.noSoundMessage,
-          data: { url: payload.url, detail: payload.detail }
-        });
-      }
-    }
+    );
   }
   catch (e) {
-    console.error(e);
+    console.error("Error show notify", e.message);
   }
 }

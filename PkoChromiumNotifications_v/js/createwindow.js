@@ -1,38 +1,5 @@
-﻿
-const CurrentLoadTab = new Map();
-
-class LoadSendData {
-  constructor(method, data) {
-    this.method = method;
-    this.data = data;
-  }
-}
-
-class TabForUrl {
-  constructor() {
-    this.tabId = null;
-    this.loadData = [];
-  }
-  setTabId(tabId) {
-    this.tabId = tabId;
-  }
-  addData(loadSendData) {
-    this.loadData.push(loadSendData);
-  }
-  getLoadData() {
-    return this.loadData;
-  }
-}
-
-async function FocusedOrCreateTab(forIp, forPage, height = 700, width = 1000) {
+﻿async function FocusedOrCreateTab(forIp, forPage, height = 700, width = 1000) {
   try {
-    if (!CurrentLoadTab.has(forPage)) {
-      CurrentLoadTab.set(forPage, new TabForUrl());
-    }
-    else {
-      return null;
-    }
-
     let forUrl = `chrome-extension://${forIp}/${forPage}`;
 
     let findTabs = await chrome.tabs.query({ url: forUrl });
@@ -50,8 +17,16 @@ async function FocusedOrCreateTab(forIp, forPage, height = 700, width = 1000) {
       findTab = window.tabs[0];
 
       if (forPage == "currentnotification.html") {
+        try {
+          console.debug("Отправка сообщение воспроизведения звука");
+          await chrome.runtime.sendMessage({ method: "playSound" });
+        }
+        catch (ex) {
+          console.error("Ошибка отправки сообщения воспроизведения звука", ex);
+        }
         chrome.tabs.onRemoved.addListener(function listener(tabId, info) {
           if (tabId === window.tabs[0].id) {
+            console.debug("Сработало событие закрытия окна, отправлено сообщение остановки воспроизведения звука");
             chrome.tabs.onRemoved.removeListener(listener);
             chrome.runtime.sendMessage({ method: "stopSound" });
           }
@@ -61,75 +36,71 @@ async function FocusedOrCreateTab(forIp, forPage, height = 700, width = 1000) {
     return findTab;
   }
   catch (e) {
-    if (CurrentLoadTab.has(forPage)) {
-      CurrentLoadTab.delete(forPage);
-    }
     console.error(e);
   }
 }
 
-export async function RemoveTab(forPage) {
+export async function SendDataForOpenTab(forPage, method, data) {
   try {
-    if (CurrentLoadTab.has(forPage)) {
-      CurrentLoadTab.delete(forPage);
-    }
     let forUrl = `chrome-extension://${chrome.runtime.id}/${forPage}`;
-
-    let findTabs = await chrome.tabs.query({ url: forUrl });
-
-    if (findTabs.length > 0) {
-      await chrome.tabs.remove(findTabs[0].id);
-    }
-  }
-  catch (e) {
-    console.error(e);
-  }
-}
-
-async function sendToTabData(tabId, method, data, forUrl) {
-  try {
-    if (forUrl) {
-      if (CurrentLoadTab.has(forUrl)) {
-        const currentArray = CurrentLoadTab.get(forUrl).getLoadData();
-        CurrentLoadTab.delete(forUrl);
-        for (var item of currentArray) {
-          await chrome.tabs.sendMessage(tabId, { method: item.method, detailInfo: item.data });
+    await navigator.locks.request(
+      forUrl,
+      { mode: "exclusive" },
+      async (lock) => {
+        let findTabs = await chrome.tabs.query({ url: forUrl });
+        if (findTabs.length > 0) {
+          var tab = findTabs[0];
+          if (tab) {
+            if (tab.status == "complete") {
+              await chrome.tabs.sendMessage(tab.id, { method: method, detailInfo: data });
+            }
+            else {
+              chrome.tabs.onUpdated.addListener(async function listenerCompleteTab(tabId, info) {
+                if (info.status === 'complete' && tabId === tab.id) {
+                  chrome.tabs.onUpdated.removeListener(listenerCompleteTab);
+                  await chrome.tabs.sendMessage(tabId, { method: method, detailInfo: data });
+                }
+              });
+            }
+          }
         }
       }
-    } else {
-      await chrome.tabs.sendMessage(tabId, { method: method, detailInfo: data });
-    }
+    );        
   }
   catch (e) {
     console.error(e);
   }
 }
 
-async function SendData(tab, method, data, forUrl) {
-  try {
-    if (CurrentLoadTab.has(forUrl)) {
-      CurrentLoadTab.get(forUrl).addData(new LoadSendData(method, data));
-    }
-    if (tab) {
-      if (tab.status == "complete") {
-        await sendToTabData(tab.id, method, data, forUrl);
-      }
-      else {
-        chrome.tabs.onUpdated.addListener(async function listener(tabId, info) {
-          if (info.status === 'complete' && tabId === tab.id) {
-            chrome.tabs.onUpdated.removeListener(listener);
-            await sendToTabData(tab.id, method, data, forUrl);
-          }
-        });
+export async function FocusedOrCreateTabAndSendData(url, height = 700, width = 1000) {
+  await navigator.locks.request(
+    url,
+    { mode: "exclusive" },
+    async (lock) => {
+      if (!await IsOpenTabForPageAndType("TAB", url.split(".html")[0])) {
+        await FocusedOrCreateTab(chrome.runtime.id, url, height, width);
       }
     }
-  }
-  catch (e) {
-    console.error(e);
-  }
+  );
 }
 
-export async function FocusedOrCreateTabAndSendData(url, method, data, height = 700, width = 1000) {
-  let tab = await FocusedOrCreateTab(chrome.runtime.id, url, height, width);
-  await SendData(tab, method, data, url);
+export async function IsOpenTabForPageAndType(type, page) {
+  if (chrome.runtime.getContexts) {
+    const contexts = await chrome.runtime.getContexts({
+      contextTypes: [type],
+      documentOrigins: [`chrome-extension://${chrome.runtime.id}`]
+    });
+    if (contexts.length > 0) {
+      return contexts.some(x => x.documentUrl.includes(`chrome-extension://${chrome.runtime.id}/${page}.html`));
+    }
+  } else {
+    const matchedClients = await clients.matchAll();
+    let first = await matchedClients.find(client => {
+      client.url.includes(`chrome-extension://${chrome.runtime.id}/${page}.html`);
+    });
+    if (first) {
+      return true;
+    }
+  }
+  return false;
 }

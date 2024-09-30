@@ -1,7 +1,8 @@
+﻿var longwarm = null;
 window.onload = async () => {
-  await chrome.runtime.sendMessage({ method: "keepAlive" });;
+  longwarm = document.querySelector("#longwarm");
+  await chrome.runtime.sendMessage({ method: "keepAlive" });
 }
-
 
 setInterval(async () => {
   try {
@@ -14,22 +15,12 @@ setInterval(async () => {
 
 chrome.runtime.onMessage.addListener((e) => {
   if (e.method == "playSound") {
-    ManagmentAudio(true);
-  }
-  if (e.method == "stopSound") {
-    ManagmentAudio(false);
-  }
-});
-
-function ManagmentAudio(isPaly) {
-  let longwarm = document.querySelector("#longwarm");
-  if (longwarm) {
-    if (isPaly && longwarm.paused) {
+    if (longwarm && longwarm.paused) {
       longwarm.currentTime = 0;
       longwarm.play();
     }
-    else if (!isPaly) {
-      longwarm.pause();
-    }
   }
-}
+  if (e.method == "stopSound") {
+    longwarm?.pause();
+  }
+});
